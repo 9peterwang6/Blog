@@ -8,19 +8,41 @@
 </head>
 <body>
 
-
 <div class="w3-container w3-black">
   <h1>9peterwang6</h1>
 </div>
 
+<div class="w3-bar w3-black">
+  <a href="#" class="w3-bar-item w3-button w3-black">Home</a>
+  <a href="javascript:void(0)" class="w3-bar-item w3-button 
+                                        w3-right" 
+       onclick="myFunction()">&#9776;</a>
+</div>
+  
+<div id="navi" class="w3-bar-block w3-grey w3-hide">
+    <a href="#" class="w3-bar-item w3-button ">Experience</a>
+    <a href="#" class="w3-bar-item w3-button ">Repository</a>
+</div>
 
-<div class="w3-container w3-black">
+<div class="w3-container">
   <p>Welcome to my world.</p>
-
+</div>  
 
 <div class="w3-container w3-black">
   <p> you can contact me via e-mail</p>
 </div>
 
+  
+ <script>
+function myFunction() {
+    var x = document.getElementById("navi");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else { 
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+</script>
+  
 </body>
 </html>
