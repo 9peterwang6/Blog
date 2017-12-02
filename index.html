@@ -8,41 +8,29 @@
 </head>
 <body>
 
-<div class="w3-container w3-black">
+<div class="w3-container w3-black w3-center">
   <h1>9peterwang6</h1>
 </div>
 
-<div class="w3-bar w3-black">
-  <a href="#" class="w3-bar-item w3-button w3-black">Home</a>
-  <a href="javascript:void(0)" class="w3-bar-item w3-button 
-                                        w3-right" 
-       onclick="myFunction()">&#9776;</a>
-</div>
-  
-<div id="navi" class="w3-bar-block w3-grey w3-hide">
-    <a href="#" class="w3-bar-item w3-button ">Experience</a>
-    <a href="#" class="w3-bar-item w3-button ">Repository</a>
-</div>
-
-<div class="w3-container">
+<div class="w3-container w3-center">
   <p>Welcome to my world.</p>
 </div>  
 
-<div class="w3-container w3-black">
+<div class="w3-row-padding">
+  <div class="w3-col s4 m4 l4">
+    <img src="pictures/img1" width=100%>
+  </div>
+  <div class="w3-col s4 m4 l4">
+    <img src="pictures/img2" width=100%>
+  </div>
+  <div class="w3-col s4 m4 l4">
+    <img src="pictures/img3" width=100%> 
+  </div>
+</div>    
+ 
+<div class="w3-container w3-black w3-center">
   <p> you can contact me via e-mail</p>
 </div>
-
-  
- <script>
-function myFunction() {
-    var x = document.getElementById("navi");
-    if (x.className.indexOf("w3-show") == -1) {
-        x.className += " w3-show";
-    } else { 
-        x.className = x.className.replace(" w3-show", "");
-    }
-}
-</script>
   
 </body>
 </html>
