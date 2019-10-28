@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Compiler Construction</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://9peterwang6.github.io/w3.css">
+</head>
+<body>
+
+<!-- Header -->
+<div class="w3-container w3-black w3-center">
+        <h1>Compiler Construction Course Notes</h1>
+</div>
+
+<!-- Blog Contents -->
+<div class="w3-container w3-black">
+	<h4>So what's it about?</h4>
+	<p>When a program gets compiled, the program gets scanned and parsed. Intermediate code is generated before the program is transformed into machine code. Can we do some optimizations before the transformation? The answer is yes and this is what we do in this course. We are going to learn how to analyze the intermediate code and how to apply some optimization techniques to get optimized code. The optimization is a part of the compiling process, so to custruct a compiler this is something we need to know.</p>
+
+        <h4>Sounds interesting but where should I begin?</h4>
+	<p>To begin with, we assume that we already have intermediate code (three-address code which is like: 1. a = b + c; 2. b = a; 3. if b != c goto 5; 4. goto 1; 5. halt). The analysis begins with the construction of Control Flow Graph (CFG) out of the intermediate code we have. CFG groups instructions into basic blocks, which are the nodes of CFG, and adds directed edges to demonstrate the program control flow.</p>
+
+	<h4>How to construct a Control Flow Graph?</h4>
+	<div class="w3-container w3-black">
+		<p>To construct a control flow graph, we need to construct the basic blocks. The following instructions show how to construct basic blocks.</p>
+		<ul class="w3-ul w3-card w3-border" style="width:50%">
+			<li>Step 0: Use a currently empty list to keep track of the marked instructions. Go to Step 1.</li>
+			<li>Step 1: Mark the first instruction and update the list. Go to Step 2.</li>
+			<li>Step 2: Read the next instruction. If there's no instruction left, go to Step 5. Otherwise go to step 3.</li>
+			<li>Step 3: If the instruction is an IF instruction, mark its goto target and update the list. Go to Step 2. Otherwise go to Step 4.</li>
+			<li>Step 4: If the instruction is a goto instruction, mark its target and update the list. Go to Step 2.</li>
+			<li>Step 5: If it's the first time you reach here, get the second instruction and go to Step 3. Otherwise check if you have added some new instructions to the list. If yes, then get the second instruction and go to Step 3. Otherwise, stop and each marked instruction becomes the leader (the first instruction) of a basic block. Go to Step 6.</li>
+			<li>Step 6: Sort the list in terms of intruction label. Go to Step 7.</li>
+			<li>Step 7: Pop the first instruction from the list. Create a new basic block and add the instruction to the block. Go to Step 8.</li>
+			<li>Step 8: Read the next instruction. If there is nothing left, all blocks are created. Stop and go to Step 10 to add edges. Else go to step 9.</li>
+			<li>Step 9: If the instruction is not in the list, add the instruction to the basic block and go to Step 8. Else go to Step 7.</li>
+			<li>Step 10: For each block A, scan the rest of the block to find the block B that has the first instruction label is greater than the block's last instruction label by 1. Add an edge from A to B. If block A has an IF statement at the end, add an edge from A to the block that has the goto target of the IF statement. HALT.</li>
+		</ul>
+	<p>(looks a little nasty... will rewrite it in pseudocode later if necessary.)</p>
+	</div>
+
+	<h4>Now I have the CFG. What's next?</h4>
+	<p>The next step is to detect loops in CFG for later optimizations (e.g. loop unrolling). There are two ways to detect loops. The methods are shown below.</p>
+	<div class="w3-container w3-black">
+		<p>Method 1: Detecting loops by computing dominator sets</p>
+	</div>
+</div>
+
+<!-- Footer -->
+<div class="w3-container w3-black w3-center">
+    <div class="w3-display-bottom">
+            <p> you can contact me via e-mail</p>
+        </div>
+</div>
+
+</body>
+</html>
