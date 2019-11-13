@@ -37,14 +37,39 @@
 			<li>Step 9: If the instruction is not in the list, add the instruction to the basic block and go to Step 8. Else go to Step 7.</li>
 			<li>Step 10: For each block A, scan the rest of the block to find the block B that has the first instruction label is greater than the block's last instruction label by 1. Add an edge from A to B. If block A has an IF statement at the end, add an edge from A to the block that has the goto target of the IF statement. HALT.</li>
 		</ul>
-	<p>(looks a little nasty... will rewrite it in pseudocode later if necessary.)</p>
-	</div>
+	</div><br>
 
 	<h4>Now I have the CFG. What's next?</h4>
-	<p>The next step is to detect loops in CFG for later optimizations (e.g. loop unrolling). There are two ways to detect loops. The methods are shown below.</p>
+	<p>The next step is to detect loops in CFG for later optimizations (e.g. loop unrolling). One way to detect loops is shown below.</p>
 	<div class="w3-container w3-black">
-		<p>Method 1: Detecting loops by computing dominator sets</p>
+		<p>Loop Detection Method 1: Detecting loops by ordering the nodes</p>
+		<p>Note: Loop Detection Method 1 works only if it is given that the CFG is reducible (i.e. CFG becomes a DAG after removing all the back edges).</p>
+		<p>Below are the steps of Method 1</p>
+		<ul class="w3-ul w3-card w3-border" style="width:50%">
+			<li>Step 0: Use a currently empty list DFS_Order to store the traverse order of the nodes (a.k.a. basic blocks). And number the basic blocks. Go to Step 1.</li>
+			<li>Step 1: Traverse the CFG using a DFS. When you get to a node, add the node number to list DFS_Order. Go to step 2.</li>
+			<li>Step 2: Create another list called DF_number. Scan DFS_Order from the back, add the node number to DF_number if it is not in DF_number. After scanning DFS_Order, you will get the depth first ordering of the nodes. Go to Step 3.</li>
+			<li>Step 3: For each edge A->B in CFG, if A's index in DF_number is smaller than B' index in DF_number, then A->B is a back edge. If a back edge is found, add the back edge info to list Back_Edges. After the for loop, if Back_Edges is not null, go to Step 4. Else Halt and there is no loop in the program.</li>
+			<li>Step 4: For each edge A->B in Back_Edges, create empty lists Stack and Loop_Elements, add B to Stack and do the following substeps.
+				<ul>
+					<li>Substep 1: Pop the first item Top in Stack and add to Loop_Elements</li>
+					<li>Substep 2: For each predecessor pred of Top, if pred is not in Loop_Elements, add pred to the beginning of Stack</li>
+					<li>Substep 3: If Stack is not empty, go to Substep 1. Else HALT and Loop_Elements contains the nodes inside a loop.</li>
+				</ul>
+			</li>
+			
+		</ul>
+	</div><br>
+
+	<h4>Looks cool... But it only works on reducible CFGs. How about those non-reducible CFGS?</h4>
+	<p>To detect loops in non-reducible CFGs. We need to introduce a general concept before we go to Method 2.</p>
+	<div>
+		<p>Dominators: node A is node B's dominator, or A dominates B iff every path from the start node to B passes A. </p>  
 	</div>
+
+
+	<h4>Wait wait wait... Loop Detection Method 2 does not detect all the loops on a non-reducible CFG...</h4>
+	<p>Indeed, it only detects loops that fall under our definition. There is one way though, to detect all the loops on a non-reducible CFG. That is to convert it to a reducible CFG:). A technique called node splitting can help us out.</p>
 </div>
 
 <!-- Footer -->
