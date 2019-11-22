@@ -27,7 +27,20 @@
                         <code>update-java-alternatives --set [the name of your Java version]</code>
                 </div>
 		<p>Please note that Java 1.x <=> JDK x <=> Java x</p>
-	</div> 
+	</div><br>
+
+	<div class="w3-container">
+		<h4>How to set the default zoom level in Firefox without zooming your page each time?</h4>
+		<p>Open a new tab and type in the following: </p>
+		<div class="w3-panel w3-grey w3-round w3-padding">
+			<code>about:config</code>
+		</div>
+		<p>Click "I accept the risk!" button, then look up <code>layout.css.devPixelsPerPx</code>. Double click and set your value.</p>
+		<p>Note that 1.0 gives you a look and feel as if you set your zoom level to 100%, giving you 96 dpi fonts
+		according to <a href="https://support.mozilla.org/en-US/questions/1147570">this link</a>, 1.5 gives you a look and feel of zoom level 150%.
+		And now if you check your zoom level, it will still be 100%. So changing <code>layout.css.devPixelsPerPx</code>
+		is like changing your zoom level's reference frame.</p>
+	</div><br>
 </div>
 
 <!-- Footer -->
