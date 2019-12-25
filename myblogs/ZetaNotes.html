@@ -27,6 +27,26 @@
                         <code>update-java-alternatives --set [the name of your Java version]</code>
                 </div>
 		<p>Please note that Java 1.x <=> JDK x <=> Java x</p>
+		<h5>What if I cannnot find all the Java versions using <code>update-java-alternatives</code>?</h5>
+		<p>It seems that <code>update-java-alternatives</code> can only find the jdks installed via apt/apt-get/altitude. The following steps will show you how to install a JDK and set your default Java version.</p>
+		<ol>
+			<li>go to <a href="https://www.oracle.com/technetwork/java/javase/downloads/index.html">this page</a> or <a href="https://www.azul.com/downloads/zulu-community/?&architecture=x86-64-bit&package=jdk">this page</a> to download a compressed JDK (a tar.gz file)</li>
+			<li>open a terminal (the default hot-key is Ctrl+Alt+T)</li>
+			<li>extract the files via typing <code>tar -xf /path/filename</code> on terminal</li>
+			<li>move the folder to a desired place via typing <code>sudo mv /path/jdk_foldername /desired/path</code></li>
+			<li>change ownership of the folder so that user and group <code>root</code> own the file by typing <code>sudo chown -R root:root /path/jdk_foldername</code></li>
+			<li>type in the following commands to "register" your JDK: <br>
+				<code>sudo update-alternatives --install /usr/bin/java  /path/jdk_foldername/bin/java 200</code>
+				<br>and<br>
+				<code>sudo update-alternatives --install /usr/bin/javac /path/jdk_foldername/bin/javac 200</code></li>
+			<li>now you can check your java versions via the following command<br>
+				<code>update-alternatives --list java</code><br>
+				to check your javac versions, replace java with javac in the command</li>
+			<li>if you want to change your java version, type the following command<br>
+				<code>sudo update-alternatives --config java</code><br>
+				and follow the prompts; to change your javac version, replace java with javac in the command</li>
+		</ol>
+		<p>Reference: <a href="https://www.howtodojo.com/2017/07/install-java-7-ubuntu-16-04/">How To Install Java 7 on Ubuntu 16.04 (Oracle JDK and OpenJDK)</a></p>
 	</div><br>
 
 	<div class="w3-container">
