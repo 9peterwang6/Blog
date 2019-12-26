@@ -11,7 +11,7 @@
 <!-- Header -->
 <div class="w3-container w3-black w3-center">
 	<h1>This is the place where I put on some short notes on some programming stuff.</h1>
-	<h3>      -- No explanations. Please just follow the steps :)</h3>
+	<h3>      -- Have my own notes just in case the references or bookmarks are down</h3>
 </div>
 
 <!-- Blog Contents -->
@@ -224,7 +224,7 @@
 
 	<div class="w3-container">
 		<h4>How to write command line program/script descriptions</h4>
-		<p>Here is a very nice example I found on <a href="http://docopt.org/">this webpage</a></p>
+		<p>Here is a very nice example I found on <a href="http://docopt.org/">docopt.org</a></p>
 		<div class="w3-panel w3-grey w3-round w3-padding">
 			<code>
 				Naval Fate.<br>
@@ -247,6 +247,73 @@
 		</div>
 	</div><br>
 
+	<div class="w3-container">
+		<h4>Virtual keyboard for Raspberry Pi</h4>
+		<div class="w3-panel w3-grey w3-round w3-padding">
+			<code>
+				sudo apt-get update<br>
+				sudo apt-get install at-spi2-core<br>
+				sudo apt-get install florence<br>
+			</code>
+		</div>
+	</div><br>
+
+	<div class="w3-container">
+		<h4>How to set a cronjob on a Linux server if you have shell access?</h4>
+		<p>Use a command called crontab</p>
+		<div class="w3-panel w3-grey w3-round w3-padding">
+			<code>
+				# Set the editor for crontab file (vi by default)<br>
+				export VISUAL=nano<br>
+				<br>
+				# Edit the crontab file<br>
+				crontab -e<br>
+				<br>
+				# This is an example of a php cronjob<br>
+				* * * * * /inst/bin/php /path/to/your/script.php > /dev/null 2>&1<br>
+				<br>
+				# The first five "*"s are timing settings which set minutes, hours, days, months, weekday<br>
+				# "*" <=> "every"<br>
+				# So 0 23 * * * means the cronjob will be executed at 23:00 every day<br>
+				# And * 23 * * * means the cronjob will be executed at every minute of the 23rd hour of each day<br>
+				# 0 6 1 * * means the cronjob will be executed at 6:00 on the first day of each month<br>
+				# 0 4-6 * * 0 means the cron job will be executed at 4:00 ~ 6:00 every Sunday<br>
+				<br>
+				# "inst/bin/php" tells you what type of script you want to execute<br>
+				# Most commands reside in "/usr/bin" e.g. "/usr/bin/php", "/usr/bin/wget", ...<br>
+				# Please make sure "where the commands are" by typing: <br>
+				which command<br>
+				<br>
+				# "> /dev/null 2>&1" means discarding output and error message<br>
+				# You can use "&> /dev/null" to make it concise<br>
+				# You can also use "&> /place/you/want/to/put/your/output" to write out the output<br>
+				<br>
+				# To list all your cronjobs you can run the following command<br>
+				crontab -l<br>
+				<br>
+				# Check out Crontab Generator for other settings you can do<br>
+			</code>
+		</div>
+		<p>Reference:</p>
+		<ul>
+			<li><a href="https://www.taniarascia.com/setting-up-a-basic-cron-job-in-linux/">Tania Rascia's blog</a></li>
+			<li><a href="https://crontab-generator.org/">Crontab Generator</a></li>
+		</ul>
+	</div><br>
+
+	<div class="w3-conatiner">
+		<h4>What if my Outlook gets stuck at "Processing"?</h4>
+		<p>Run Outlook in safe mode to fix itself.</p>
+		<ol>
+			<li>Open an app called "Run"</li>
+			<li>Type <code>outlook /safe</code> and click "OK"</li>
+			<li>If Outlook successfully opens and logs you in, close it and reopen Outlook to make sure it's fixed</li>
+		</ol>
+		<p>Reference:</p>
+		<ul>
+			<li><a href="https://support.office.com/en-us/article/Outlook-not-responding-stuck-at-Processing-stopped-working-freezes-or-hangs-5C313D04-64AF-4441-82D2-44E5A43EEE5A">Microsoft Office Support</a></li>
+		</ul>
+	</div><br>
 </div>
 
 <!-- Footer -->
