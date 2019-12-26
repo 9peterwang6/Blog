@@ -11,7 +11,7 @@
 <!-- Header -->
 <div class="w3-container w3-black w3-center">
 	<h1>This is the place where I put on some short notes on some programming stuff.</h1>
-	<h3>      -- No reasons. Just hard and fast rules :)</h3>
+	<h3>      -- No explanations. Please just follow the steps :)</h3>
 </div>
 
 <!-- Blog Contents -->
@@ -24,8 +24,8 @@
 		</div>
 		<p>To set the default Java version: </p>
 		<div class="w3-panel w3-grey w3-round w3-padding">
-                        <code>update-java-alternatives --set [the name of your Java version]</code>
-                </div>
+			<code>update-java-alternatives --set [the name of your Java version]</code>
+		</div>
 		<p>Please note that Java 1.x <=> JDK x <=> Java x</p>
 		<h5>What if I cannnot find all the Java versions using <code>update-java-alternatives</code>?</h5>
 		<p>It seems that <code>update-java-alternatives</code> can only find the jdks installed via apt/apt-get/altitude. The following steps will show you how to install a JDK and set your default Java version.</p>
@@ -65,11 +65,193 @@
 		And now if you check your zoom level, it will still be 100%. So changing <code>layout.css.devPixelsPerPx</code>
 		is like changing your zoom level's reference frame.</p>
 	</div><br>
+
+	<div class="w3-container">
+		<h4>How to install Adobe Flash Player on Ubuntu?</h4>
+		<p>Open the terminal and type in the following code.</p>
+		<div class="w3-panel w3-grey w3-round w3-padding">
+			<code>
+				sudo add-apt-repository "deb http://archive.canonical.com/ $(lsb_release -sc) partner"<br>
+				sudo apt update<br>
+				sudo apt install adobe-flashplugin browser-plugin-freshplayer-pepperflash<br>
+			</code>
+		</div>
+		<p>Reference:</p>
+		<ul>
+			<li><a href="https://websiteforstudents.com/install-adobe-flash-player-on-ubuntu-18-04-lts-beta-desktop/">Install Adobe Flash Player on Ubuntu 18.04 LTS Desktop | Website for Students</a></li>
+		</ul>
+	</div><br>
+
+	<div class="w3-container">
+		<h4>How to install Chinses input method on Ubuntu?</h4>
+		<p>Open the terminal and type in the following code.</p>
+		<div class="w3-panel w3-grey w3-round w3-padding">
+			<code>
+				sudo apt update<br>
+				sudo apt install ibus ibus-clutter ibus-gtk ibus-gtk3 ibus-qt4<br>
+				sudo apt install ibus-pinyin<br>
+				sudo apt install ibus-sunpinyin<br>
+			</code>
+		</div>
+		<p>Do a logout and log back in to let the changes take effect.</p>
+		<p>Reference:</p>
+		<ul>
+			<li><a href="https://wiki.ubuntu.com.cn/%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95">中文输入法 - Ubuntu中文</a></li>
+		<ul>
+	</div><br>
+
+	<div class="w3-container">
+		<h4>How to completely remove a package on Ubuntu?</h4>
+		<p>Open the terminal and type in the following code.</p>
+		<div class="w3-panel w3-grey w3-round w3-padding">
+			<code>sudo apt-get --purge autoremove packagename</code>
+		</div>
+		<p>Reference:</p>
+		<ul>
+			<li><a href="https://askubuntu.com/questions/187888/what-is-the-correct-way-to-completely-remove-an-application">completely uninstall a package on Ubuntu</a></li>
+		</ul>
+	</div><br>
+
+	<div class="w3-container">
+		<h4>How to make a plan text become a superscript in MS Word?</h4>
+		<p>Select the text you want and press "Ctrl" + "Shift" + "+".</p>
+		<p>Sidenote: I came across this problem when I was creating bibliography in MS Word. To create bibliography, click on the "References" tab and then click on "Manage Resources" to add your references.
+			After you have done inputing all your references, click on "Insert Citation" to insert your desired reference at places you want.
+		</p>
+		<p>Another sidenote: At "References" you can also create table of contents by clickling on "Table of Contents".</p>
+	</div><br>
+
+	<div class="w3-container">
+		<h4>How to activate my Windows / Office when I have a KMS Server?</h4>
+		<p>Follow the following steps</p>
+		<ol>
+			<li>Make sure you downloaded and installed a VL (Volume Licensed) version of Windows / Office.</li>
+			<li>Open cmd</li>
+			<li>To activate Windows, please type <code>slmgr /skms your.kms.server</code> and <code>slmgr /ato</code> to activate.</li>
+			<li>To activate Office, first type in <code>cd "Your:\Path\To\Office\OfficeXX"</code>, and then <code>cscript ospp.vbs /sethst:your.kms.server</code>
+				and finally <code>script ospp.vbs /act</code> to activate.</li>
+		</ol>
+		<p>Reference:</p>
+		<ul>
+			<li><a href="https://03k.org/kms.html" id="kms.03k.org">零散坑</a></li>
+			<li><a href="https://gist.github.com/CHEF-KOCH/29cac70239eed583ad1c96dcb6de364b">More info...</a></li>
+		</ul>
+	</div><br>
+
+	<div class="w3-container">
+		<h4>How to install and configure PL/SQL Developer?</h4>
+		<p>Follow the following steps</p>
+		<ol>
+			<li>Download <a href="https://www.allroundautomations.com/products/pl-sql-developer/">PL/SQL Developer</a> and <a href="https://www.oracle.com/database/technologies/instant-client/downloads.html">Oracle Instant Client (Basic Package)</a></li>
+			<li>Extract oracle instant client compressed file to a desired place.</li>
+			<li>Go to <code>Control Panel\System and Security\System</code> and click on "Advanced system settings"</li>
+			<li>Click on "Advanced" tab, and go to "Environmental Variables..."</li>
+			<li>On "System Variables", click "New" and set "ORACLE_HOME" to be "Your:\Path\To\Oracle\Instant\Client"</li>
+			<li>Go to your path to oracle instant client, create a new folder called "tns".</li>
+			<li>Create another system variable "TNS_ADMIN" and set it to be "%ORACLE_HOME\tns"</li>
+			<li>Install and activate PL/SQL Developer</li>
+		</ol>
+		<p>Reference:</p>
+		<ul>
+			<li><a href="https://www.jb51.net/softjc/567468.html">脚本之家</a></li>
+		</ul>
+	</div><br>
+
+	<div class="w3-container">
+		<h4>How install 1013 in VMWare on Windows</h4>
+		<p>NB: They don't like it. And it's against their EULA. Do it at your own risk.</p>
+		<ol>
+			<li>Attain a 1013 iso.</li>
+			<li>Download and install VMWare Workstation Player 15.10</li>
+			<li>Download and extract unlocker302</li>
+			<li>Run win-install as administrator</li>
+			<li>Create a VM in Workstation Player</li>
+			<li>Find the VM's VMX file and open it using WordPad</li>
+			<li>Add <code>smc.version = "0"</code> at the end of the file.</li>
+			<li>Boot up your VM and let it finish installation.</li>
+			<li>Download darwin.iso on host and mount it in VM</li>
+			<li>Follow the prompts to install VMTools</li>
+			<li>Restart your VM and you're all set.</li>
+			<li>You can also download and install Beamoff in VM to have better graphic performance (especially if you are using Oracle VM)</li>
+		</ol>
+		<p>Reference:</p>
+		<ul>
+			<li><a href="https://techsviewer.com/install-mac-os-x-10-10-yosemite-retail-on-vmware-on-pc/">Different but similar</a></li>
+		</ul>
+	</div><br>
+
+	<div class="w3-container">
+		<h4>How to resize your Linux drive size when you're duo-booting your Linux?</h4>
+		<p>Follow the following steps</p>
+		<ol>
+			<li>Check your available disk size on to make sure your new drive size won't be larger than that.</li>
+			<li>open a terminal</li>
+			<li>Make sure your drive has ext4 FS format by typing in<code>file /Path/To/Your/root.disk</code> on your terminal</li>
+			<li>Type in <code>sudo resize2fs /Path/To/Your/root.disk <new_size></code> to resize your drive.</li>
+			<li>Reboot</li>
+		</ol>
+		<p>Reference:</p>
+		<ul>
+			<li><a href="https://jingyan.baidu.com/article/c45ad29c761df5051753e213.html">怎么扩大Deepin等Linux系统盘root.disk容量大小_百度经验</a></li>
+		</ul>
+	</div><br>
+
+	<div class="w3-container">
+		<h4>A tip of installing Ubuntu on a SSD</h4>
+		<p>Switch the SSD controller mode in BIOS settings from "RAID" to "AHCI".</p>
+		<p>Reference:</p>
+		<ul>
+			<li><a href="https://askubuntu.com/questions/924815/ubuntu-16-04-installer-cant-find-my-ssd-on-my-dell-xps-15">Ubuntu 16.04 installer can't find my SSD on my Dell XPS 15</a></li>
+		</ul>
+	</div><br>
+
+	<div class="w3-container">
+		<h4>How to run graphical applications on WSL?</h4>
+		<p>Follow the following steps</p>
+		<ol>
+			<li>Download and install MobaXterm</li>
+			<li>Open MobaXterm and start a local terminal (or press the X Server button to start the X server)</li>
+			<li>Open WSL</li>
+			<li>Run <code>nano ~/.bashrc</code></li>
+			<li>Add <code>export DISPLAY=:0</code> to the end of the file.</li>
+			<li>Save and close the file and run <code>source ~/.bashrc</code></li>
+		</ol>
+		<p>Reference:</p>
+		<ul>
+			<li><a href="https://nickjanetakis.com/blog/using-wsl-and-mobaxterm-to-create-a-linux-dev-environment-on-windows">Using WSL and MobaXterm to Create a Linux Dev Environment on Windows — Nick Janetakis</a></li>
+		</ul>
+	</div><br>
+
+	<div class="w3-container">
+		<h4>How to write command line program/script descriptions</h4>
+		<p>Here is a very nice example I found on <a href="http://docopt.org/">this webpage</a></p>
+		<div class="w3-panel w3-grey w3-round w3-padding">
+			<code>
+				Naval Fate.<br>
+				<br>
+				Usage:<br>
+					naval_fate ship new <name>...  # "..." <=> argument <name> can be repeated.<br>
+					naval_fate ship <name> move <x> <y> [--speed=<kn>]  # "[] <=> optional parameter<br>
+					naval_fate ship shoot <x> <y><br>
+					naval_fate mine (set|remove) <x> <y> [--moored|--drifting]  # "() <=> required parameters; | <=> or<br>
+					naval_fate -h | --help<br>
+					naval_fate --version<br>
+				<br>
+				Options:<br>
+					-h --help     Show this screen.<br>
+					--version     Show version.<br>
+					--speed=<kn>  Speed in knots [default: 10].  # At least two spaces needed.<br>
+					--moored      Moored (anchored) mine.<br>
+					--drifting    Drifting mine.<br>
+			</code>
+		</div>
+	</div><br>
+
 </div>
 
 <!-- Footer -->
 <div class="w3-container  w3-black w3-center">
-    <div class="w3-display-bottom">
+	<div class="w3-display-bottom">
 		<p> you can contact me via e-mail</p>
 	</div>
 </div>
