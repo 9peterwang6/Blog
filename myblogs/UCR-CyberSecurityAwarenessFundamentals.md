@@ -3,8 +3,7 @@
 The three pillars of information security is known as the CIA Traid: confidentiality, integrity and availablility: 
 * Confidentiality is about keeping your private data secret. Any personal or professional data you don't want to see in the headlines or on websites is private data. Private data should always be kept secret.
 * Availability means that the systems you need are run and running properly. It means that you have access to the information and resources you need when you need them.
-* Integrity is about accuracy or authenticity
-. It means that your boss' email is really sent from your boss.
+* Integrity is about accuracy or authenticity. It means that your boss' email is really sent from your boss.
 
 To maintain information security, we need to figure out how to maintain our CIA Traid in three domains: Physical, Cyber, and People domains:
 * To maintain CIA Traid in the physical domain, we need to protect the physical access of our stuff.
