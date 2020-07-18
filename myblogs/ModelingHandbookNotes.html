@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Modeling Handbook Notes</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://9peterwang6.github.io/w3.css">
+	</head>
+	<body>
+
+		<!-- Header -->
+		<div class="w3-container w3-black w3-center">
+			<h1><i>Modeling Handbook</i> Notes</h1>
+		</div>
+
+		<!-- Question One -->
+		<div class="w3-container w3-black">
+			<h3>Could King Kong Exist?</h3>
+			<p>When a three dimensional object's dimensions are increased by a given factor n, the surface area increases by a factor of n**2 and the volume increases by n**3. The same principle applies to human beings. We can assume that all humans have similar body builds. When a man's height increases by a factor of m, the skin grows by a factor of m**2, and the weight grows by a factor of m**3.</p>
+
+			<p>Bone strength is proportional to crossectional areas of the bone. So if a man's height increases by a factor of m, his bone strength will grow by a factor of m**2. Since his weight will grow by a factor of m**3, assume the man's original bone strength is BS (measured in weights), if (BS * m**2) is less than (weight * m**3) then the man's bones will crumble.</p>
+
+			<p>A typical male gorilla weighs 375 pounds and is 68 inches tall. In Peter Jackson's 2005 remake of King Kong, the animal is said to be 25 feet (300 inches) tall. The growth factor is (300/68), so the weight of King Kong is 375 * (300/68)** 3 ~= 31943 pounds. The bone strength increases by a factor of (300/68)**2 ~= 19. Assume the bone strength of a male gorilla is BS, then to sustain the weight of King Kong, we need to have 31943 = 19 * BS => BS ~= 1681 pounds which is about 4.5 of the weight of a typical male gorilla. The largest gorilla captured is Gargantua. He weighs 550~600 pounds and he stood 66 inches tall. Based on the above information, it is highly unlikely that King Kong can exist.</p>
+
+			<p>By the same token, we can determine if Godzilla can exist. Godzilla is portrayed as weighing 50000 tons and 150 feet tall. If scaled down to 6 feet, he will weigh 3.2 tons (6400 pounds). This is not plausible because if we scale up Gargantua to 6 feet he will weigh about 779 pounds.</p>
+		</div>
+		<br><br>
+
+
+		<!-- Question Two -->
+		<div class="w3-container w3-black">
+			<h3>A Model Solar System</h3>
+			<p>This question is about scaling down the planet and stars in the solar system and the mean distances so that we can visualize the solar system with everyday objects. The diameters of the four smallest planets and the diameters of the four largest form two clusters that are quite different in diameter. The mean distances from the Sun also span quite a large range and seeing any patterns on a regular piece of graph paper will be difficult.</p>
+
+			<p>A mathematical device that makes it easier to see the behavior of numbers spread widely is to plot logarithms of the numbers rather than the numbers themselves. For any set of data that varies over many orders of magnitude, such as the planets, the energies of earthquakes, or the annual incomes of families, plots of the logarithms of the data tend to be very useful. For example, if you see the log-log plot is a straight line, then you can derivate a linear relationship between the two logarithms, which may depict that y**m = a * x**n + b. We can use a log-log plot of orbital period of planets and their semi-major axis of orbits to derive Keplar's third law.</p>
+		</div>
+		<br><br>
+
+
+		<!-- Question Three -->
+		<div class="w3-container w3-black">
+			<h3>For the Birds</h3>
+			<p>Your ornithologist neighbor is going out to do his bird research at the weekend and he wants to look after his birds. He gives you a birdfeeder with two pairs of feeding holes and perches equally spaced in a cylindrical shape. One pair at height 0 on the side of the feeder and the other pair is at height h/2 on the side of the feeder where h is the height of the feeder. Assume the birds come in constantly to eat when there is food in the birdfeeder. You need to determine exactly when is the best time to refill the birdfeeder. If you refill the feeder too often, you will scare away the birds, if you refill the feeder too seldom, the birds will not come to your neighbor's house to eat, which should make your neighbor mad.</p>
+
+			<p>The best time to refill the birdfeeder is when the birdfeeder is nearly empty. This is the time when you must refill the birdfeeder; otherwise you may have less birds coming for food or you may refill the birdfeeder a bit too often, which could scare the birds away. We need to approximate how soon the birdfeeder becomes empty after a refill so that we can refill the birdfeeder when it is nearly empty.</p>
+
+			<p>The easiest way to do it is to observe how long it takes for a full birdfeeder to be empty. The problem for this method is that you may need to spend a long time constantly watching the birdfeeder. We would like to model the how much food is in the birdfeeder at any given time after a refill so that we can spend a shorter time watching the birdfeeder, approximate the time it gets emptied and refill the birdfeeder without constantly watching it.</p>
+
+			<p>Suppose we refill the birdfeeder at time 0; we observe that it takes time t1 for the full birdfeeder to be half-full (i.e. the food went from height h to h/2). We assume the birds come in constantly to eat when there is food in the birdfeeder. During time 0 and time t1 they can eat from every feeding hole. After time t1, the birds can only eat from two out of four feeding holes because the height of food is less than h/2. Let r1 be the rate that birds consume food between time 0 and t1, and r2 be the rate that birds consume food between t1 and t2(t2 is the time when the birdfeeder is empty). We have 1 = r1 * t1 + r2 * t2, r1 = 2 * r2, and 1/2 = r1 * t1. Here "1" means the total amount of bird's food in the birdfeeder when it's full. With the three formulas, we can first solve for r1, and then we can solve for r2, and t2; (t1 + t2) will be the total time it takes for a full birdfeeder to be empty.</p>
+
+			<p>If now we have a bigger birdfeeder that has 3 pairs of feeding holes and perches equally spaced in a cylindrical shape. How to extend our model to this birdfeeder? Suppose we refill the birdfeeder at time 0; we observe that it takes time t1 for the full birdfeeder to be 2/3-full. Let r1 be the rate that birds consume food between time 0 and t1, r2 the rate that the birds consume food between t1 and t2(t2 is the time when the birdfeeder is 1/3-full), and r3 the rate that the birds consume food between t2 and t3(t3 is the time when the birdfeeder is empty). We have 1 = r1 * t1 + r2 * t2 + r3 * t3, r1 = 3 * r3, r2 = 2 * r3, 2/3 = r1 * t1 + r2 * t2, and 1/3 = r1 * t1. We can first solve for r1, and then r3, r2 and t2. After that we can solve for t3 and (t1 + t2 + t3) will be the total amount of time it takes for a full birdfeeder to be empty.</p>
+
+			<p>The general formula: F = r1 * t1 + r2 * t2 + ... + rN * tN can be used to solve another type of problem: craft problem. You have taken a job to make origamis in 5 days. You invited 4 friends to help you with your job but not all of them are available during the 5 days. You have all 4 friends available on the first day, 3 friends on the second day, 2 friends on the third, 1 friend on the fourth and 0 friend on the fifth. Assume everyone has the same workrate r0 and the five of you made 300 origamis at the end of the first day. How many origamis can you guys make in total?</p>
+
+			<p>If we want to draw a graph to visualize the amount of food at any given time t after a refill, we will end up having a graph with connected line segments. If we further define this function, we will have a piecewise function.</p>
+		</div>
+		<br><br>
+
+
+		<!-- Question Four -->
+		<div class="w3-container w3-black">
+			<h3>On Safari</h3>
+			<p>You have a 4-hour trip to an African jungle where you can see many different species. The problem is that when you are at one viewing spot, the species may not appear. So you need to wait. Remember you only have 4 hours, so the time you spend on one spot may affect the time you spend on other spots or affect the total species you can see. If you spending too little time on a spot, you may not have a sighting before you leave. If you spend too much time on a spot, you are more likely to have a sighting, but you don't have much time for other spots. To make things worse, the viewing spots are too far away from each other, so you cannot flexibly allocate your time and you need to tell your tour guide what species you want to see and how long you are staying there before you begin your safari. So given last year's viewing history, how would you like to allocate your time so that you can see as many species as you can?</p>
+
+			<p>The viewing history has the following data: for each different length of time in minutes, the number of groups stayed at one spot and the number of groups that had a sighting in the end. Since it is not guaranteed that you can have a sighiting, and you need to decide the amount of time to stay before safari begins, you need to maximize your chances per minute to try to see as many species as possible. That way, each minute is planned optimally. In the end you may not see as much species as expected, but at least your plan is optimal and you end up seeing more species than others who don't come up with the same plan unless they are much luckier than you are.</p>
+
+			<p>The first step to do is to compute the probability of having a sight when staying at a spot for each possible length of time t. We denote it as p(t). The next thing to do is to compute p(t)/t for each possible length of time t and pick the length of time tO that has the largest p(t)/t. The next thing to do is to allocate time slots of tO for each spot until the remaining time of your 4 hours is shorter than tO. In this case, if the remainder is 0, then you are done. Otherwise, you can repeat the above process to allocate your remainder until the remainder is 0.</p>
+
+			<p>Similar technique can be applied in microeconomics. You have a limited amount of dollars to spend and you hace a range of things you can buy. How to optimally spend your money to have the highest benefit (or pleasure) if you can measure it somehow? You will need to maximize the benefit/dollar. The technique can also be used in air defense and attack. You have a few targets to take down but you only have a limited number of bombers. Each bomber alone can wipe out the target but also has a chance of being shot down. So you can compute the probability Pk(b) of wiping out a target using b bombers. You need to allocate the bombers optimally to wipe out as many targets as possible, so you can now optimize Pk(b)/b to make your decision. For the defensive end, the country should try to make the optimum b as large as possible to save as many targets as they can.</p>
+		</div>
+		<br><br>
+
+
+		<!-- Question Five -->
+		<div class="w3-container w3-black">
+			<h3>Choosing A College</h3>
+			<p>This question is about how to make a decision when picking and choosing which college to apply or to attend.</p>
+
+			<p>We can use a methond called decision matrix to help us come up with a final decision. Here are the steps:</p>
+			<ol>
+				<li>List the schools from which you want to pick and choose.</li>
+				<li>List the features/aspects/criteria you want to take into account. For example, Financial Aid, Academics, Location</li>
+				<li>For each feature, do your research to find out how well your desired schools are doing. And rate them using a scale of 0~5. A school having a 5 under one criterion means it meets the criterion perfectly whereas a school having a 0 under one creterion means it does not meet the criterion at all. You will end up having a table/matrix M of the schools and their scores under each criterion.</li>
+				<li>For each feature, provide your preference. If you have 1 point, how would you like to allocate fractions your point to each criterion? You will end up having a list/vector P of your pereferences.</li>
+				<li>Calculate the final score of each school. Suppose you have N features m1, m2, ..., mN. And you have your preference of each feature p1, p2, ..., pN where p1 + p2 + ... + pN = 1. One school's final score = m1 * p1 + m2 * p2 + ... + mN * pN. The score table/matrix for the schools S = M * P.</li>
+				<li>Pick the school with the highest final score.</li>
+			</ol>
+
+			<p>Different preference vectors yield different results. In fact we can determine under which peference vectors a school will be picked. This is essentially a linear/non-linear programming problem with the variables being the preferences and target function being none. For example, if you have only 3 criteria and your peferences being (x, y, z). We know that z = 1 - x - y. So if school A has rating (5, 4, 2), we can draw a line representing the score of this school s1 = 5x + 4y + 2(1 - x - y). We can draw lines representing other schools, list the constraints based on your goal (e.g. school A tops) and we can figure out which (x, y) pairs will put school A on the top. Since z = 1 - x - y, we can figure out which (x, y, z) vectors will put A on the top.</p>
+		</div>
+		<br><br>
+
+
+		<!-- Question Six -->
+		<div class="w3-container w3-black">
+			<h3>A Tour of Jaffa</h3>
+			<p>This question is about route planning. Assume you are going to visit a place for your vacation. You have some tourist attractions you want to see. How are you going to plan your route so that you have time to visit all of them?</p>
+
+			<p>First of all, you need to find a way to represent the places you want to go and show a route. One way that mathematicians would show a route is to ues a graph. These are not the types of graphs that you usually think of, though. These graphs have two important features: vertices (these usually are drawn as points or dots and they represent something of interest) and edges (lines connecting the vertices; they are used to show some relationship between the vertices they connect). The edges have weights. The weight can be the distance between two vertices (i.e. places of interest) or the estimated travel time between two vertices.</p>
+
+			<p>Since we want to have time to visit all of the places we want to go, we need to look for a route that is most efficient, meaning that it takes the least time to travel. The route should not only cover all the places we want to go, but also start and end at the same place, the place we live during the vacation. A route (also known as a path) that starts and ends at the same vertex and visits each vertex in the graph exactly once until ending at the starting point is called a Hamilton circuit, and the problem of looking for the mose efficient Hamilton circuit is a famous mathematical problem called the Travelling Salesman Problem (TSP). There is an algorithm (a set of steps) to find some very efficient Hamilton circuits.</p>
+
+			<p>The algorithm has three requirements:</p>
+			<ul>
+				<li>The cost of going between two vertices is the same in either direction. (The cost is symmetric.)</li>
+				<li>The cost of going from vertex A to vertex B is less than or equal to the cost of going from vartex A to vertex C to vertex B. (The cost fuifill the triangle inequality.)</li>
+				<li>Each vertex is connected by an edge to every other vertex. (The graph is complete.)</li>
+			</ul>
+
+			<p>Most often, the cost is the edge weight. And we will denote the cost from vertex A to itself to be positive infinity to avoid the algorithm stucking in one vertex forever.  The following algorithm helps to determine near-minimal routes.</p>
+			<ol>
+				<li>Pick any vertex as a starting point for a circuit C1 consisting of 1 vertex.</li>
+				<li>Given the circuit Ck with k vertices and k >= 1, find the vertex Zk not in Ck that is closest to a vertex in Ck; call the vertex in Ck that Zk is closest to Yk.</li>
+				<li>Let C(k+1) be the circuit with (k + 1) vertices obtained by inserting Zk immediately before Yk in Ck.</li>
+				<li>Repeat steps 2 and 3 until a Hamilton circuit (containing all vertices) is formed.</li>
+			</ol>
+
+			<p>Using this algorithm we can get a nice solution. But how nice is the solution. We need to find a way to evaluate the solution and the way that is used here is to find a lower bound of this problem and see how close the solution is to the lower bound. But how to determine the lower bound of TSP? We use what's called an adjacency matrix to represent the graph. The adjacency matrix is essentially a table that represents the cost of moving between any two vertices on the graph. With the adjacent matrix, we can see that on each row, there is a smallest number. This number actually means that this is the lowest cost you need to pay in order to go to another place from this point. We add up the smallest number on each row and we subtract the costs on each row by the lowest cost of the row. We end up having a number (call it u) and another matrix. We can see that the matrix we end up with has a route with cost at least zero. So the minimal route using the original adjacency matrix is u. If the total cost of the route we come up with is close to u (for example, smaller than 2 * u), then we say we have a nice solution.</p>
+		</div>
+		<br><br>
+
+
+
+		<!-- Question Seven -->
+		<div class="w3-container w3-black">
+			<h3>Gauging Rainfall</h3>
+			<p>This question is about gauging the average rainfall in a given rectangular territory. We use rain gauges to measure rainfall. And since the territory is often large and of different altitude, it is highly unlikely to place rain gauges densely throught the territory. To determine the average rainfall based on the limited gauges we have, we need to use the following assumption: The depth of rainfall is the same near one gauge.</p>
+
+			<p>But this assumption is vague because we don't know how big the "influence" a gauge can have. Or which region in the territory has the depth of rainfall of which gauge. Given a set of rain gauges in a given territory, we need to find each gauge's "region of influence". To do this, we use Voronoi diagrams.</p>
+
+			<p>In mathematics, a Voronoi diagram is a partition of a space as a set of discrete polygons. Each region contains one "center of influence". The other points in the interior of a polygon represent all the points that are closer to that polygon's point of interest than any other point of interest. In meteorology, Voronoi diagrams are also called Thiessen polygons.</p>
+
+			<p>The position of each gauge is treated as a "center of influence". We construct a Voronoi polygon for each gauge and compute the area of each Voronoi polygon. A Voronoi polygon can be viewed as a combination of a few triangles so we can compute the area of each triangle and add up the areas to get the area of a Voronoi polygon. We can further compute the percentage of area of the territory covered by each Voronoi polygon and the average depth of rainfall in the territory is the weighted average of the depth of each rain gauge with the weight of each gauge being the percentage of area of the territory covered by its Voronoi polygon.</p>
+
+			<p>The ideas in this model have been used in building understanding in a surprisingly large number of situations. One of the earliest that is often cited was in determining a likely source of the Broad Street cholera outbreak in London in the mid-1850s. It was determined that each of a large number of victims lived closer to a particular water pump than to any other and this pump was then determined to be the source of the infection.</p>
+
+			<p>An interesting problem with a given Voronoi diagram is to recover the centers of each individual region given the boundaries, as distinguished from the original problem of ﬁnding the polygon boundaries given the centers. One method that might particularly appeal to those with an interest in algorithms is as follows: Pick a location X that seems likely to be close to the center you are trying to ﬁnd. Then its reﬂection in one of the edges should be close to the center of that polygon. Keep doing this as you "go around" a corner at which polygons meet until you get to your original polygon. If X′ = X, then your direction from the corner A is correct. If X′ ≠ X, pick a new guess halfway in between X′ and X and try again. You will rapidly approach the correct direction from A. Then do the same process around an adjacent corner B. You then know the direction from A to the center and the direction from B to the center. Together they determine the location of the center.</p>
+
+			<p>In computer science, Voronoi diagrams can also be used in computing minimal spanning tree. It can be proved that if vertex A and vertex B are directly connected in the minimal spanning tree then the Voronoi polygons centered at A and at B share an edge. So if the Voronoi polygons centered at A and at B doesn't share an edge, then vertex A and vertex B are not directly connected in the minimal spanning tree. We can use this rule before applying the Kruskal or Prim's algorithm to reduce the time spent on finding the minimal spanning tree by ruling out some of edge AB.</p>
+
+			<p>As a practical matter, computing the Voronoi diagrams for a given set of vertices is not cheap, but for large numbers of vertices it is quicker than the full Kruskal and Prim algorithms. So it would pay you to do this computation –-but only for a problem with many vertices.</p>
+		</div>
+		<br><br>
+
+		<!-- Footer -->
+		<div class="w3-container  w3-black w3-center">
+			<div class="w3-display-bottom">
+				<p> you can contact me via e-mail</p>
+			</div>
+		</div>
+
+	</body>
+</html>
