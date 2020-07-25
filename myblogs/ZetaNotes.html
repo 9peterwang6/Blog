@@ -174,11 +174,20 @@
 			<li>Download darwin.iso on host and mount it in VM</li>
 			<li>Follow the prompts to install VMTools</li>
 			<li>Restart your VM and you're all set.</li>
-			<li>You can also download and install Beamoff in VM to have better graphic performance (especially if you are using Oracle VM)</li>
+			<li>You can also download and install Beamoff in VM to have better graphic performance (especially if you are using Oracle VBox)</li>
+		</ol>
+
+		<p>You may see the following message: "This copy of the Install application is damaged, and can't be used to install." To resolve this, do the following:</p>
+		<ol>
+			<li>Disconnect from your internet connection;</li>
+			<li>In your VM, go to the menu bar on top, select Tools->Terminal;</li>
+			<li>Go back to your VM, and in the terminal set the date to a date before October 24 (It turns out to be the date on which the security certificate expires). For example, set the date as March 3, 2019 at 00:00 by typing <code>date 030300002019</code></li>
+			<li>Coneinue with your installation and you should be good.</li>
 		</ol>
 		<p>Reference:</p>
 		<ul>
 			<li><a href="https://techsviewer.com/install-mac-os-x-10-10-yosemite-retail-on-vmware-on-pc/">Different but similar</a></li>
+			<li><a href="https://www.tonymacx86.com/threads/this-copy-of-the-install-macos-mojave-app-application-is-damaged-and-cant-be-used-to-install-macos.285857/">A Discussion Thread Regarding The Damaged Installer</a></li>
 		</ul>
 	</div><br>
 
@@ -314,6 +323,57 @@
 		<p>Reference:</p>
 		<ul>
 			<li><a href="https://support.office.com/en-us/article/Outlook-not-responding-stuck-at-Processing-stopped-working-freezes-or-hangs-5C313D04-64AF-4441-82D2-44E5A43EEE5A">Microsoft Office Support</a></li>
+		</ul>
+	</div><br>
+
+	<div class="w3-container">
+		<h4>How to disable ONLY_FULL_GROUP_BY in MySQL?</h4>
+		<p>There are two solutions:</p>
+		<ul>
+			<li>Type <code>SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));</code> in a MySql console on in PHPMyAdmin</li>
+			<li>Do the following steps in PHPMyAdmin:
+					<ol>
+						<li>Open PHPMyAdmin and select the database of interest;</li>
+						<li>Click "Variables" on the menu bar on the top of the page;</li>
+						<li>Scroll down the page until you find a variable named "sql mode";</li>
+						<li>Click on "Edit" button on the left, remove "ONLY_FULL_GROUP_BY", and click "Save".</li>
+					</ol>
+			</li>
+		</ul>
+		<p>Reference:</p>
+		<ul>
+			<li><a href="https://stackoverflow.com/questions/23921117/disable-only-full-group-by">Stack Overflow</a></li>
+		</ul>
+	</div><br>
+
+	<div class="w3-container">
+		<h4>How to install plugins for Vim?</h4>
+		<p>There are many ways to install plugins for Vim. I personally prefer using Vim-plug to install and manage my Vim plugins. You can check out my shell script here to install vim-plug and get my Vim configurations.</p>
+		<p>To manage plugins using Vim-plug, here are some commands you need to know:</p>
+		<ul>
+			<li>Type <code>:so %</code> at your opened vimrc file to "apply" the changes you have made.</li>
+			<li>Type <code>:PlugInstall</code> at your opened vimrc file to begin the installations for the plugins you add.</li>
+			<li>Type <code>:PlugStatus</code> at your opened vimrc file to check the statu of your plugins.</li>
+			<li>Type <code>:PlugUpdate</code> at your opened vimrc file to update your plugins.</li>
+			<li>If you want to remove a plugin, remove or comment out the line at the "Vim-plug section" and type <code>:PlugClean</code></li>
+		</ul>
+		<p>Reference:</p>
+		<ul>
+			<li><a href="https://linuxhint.com/vim_install_plugins/">A blog that has more detailed information on installing plugins in Vim</a></li>
+		</ul>
+	</div><br>
+
+	<div class="w3-container">
+		<h4>What to do when my Adobe Acrobat Pro keeps closing itself?</h4>
+		<p>Do the following. It basically resets the user configurations (including license) of the software.</p>
+		<ol>
+			<li>Go to <code>C:\Program Files (x86)\Common File\Adobe\</code> and rename folder "SLCache" to "OldSLCache"</li>
+			<li>Go to <code>C:\Program Data\Adobe\</code> and rename folder "SLStore" to "OldSLStore"</li>
+			<li>Run the Adobe Acrobat Pro as Admin and you are all set. You may need to re-enter your license information.</li>
+		</ol>
+		<p>Reference:</p>
+		<ul>
+			<li><a href="https://community.adobe.com/t5/acrobat/adobe-acrobat-xi-pro-keeps-closing-second-after-launching-or-opening-a-pdf/td-p/6499118?page=1">Solution provided by an Adobe employee</a></li>
 		</ul>
 	</div><br>
 </div>
