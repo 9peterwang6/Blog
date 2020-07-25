@@ -376,6 +376,41 @@
 			<li><a href="https://community.adobe.com/t5/acrobat/adobe-acrobat-xi-pro-keeps-closing-second-after-launching-or-opening-a-pdf/td-p/6499118?page=1">Solution provided by an Adobe employee</a></li>
 		</ul>
 	</div><br>
+
+	<div class="w3-container">
+		<h4>How to export/backup databases from SQL Server on Amazon RDS?</h4>
+		<p>Depending on what output format you want. There are two solutions:</p>
+		<ul>
+			<li>
+				Run the following code in SQL Server Management Studio (SSMS) after you have connected to your AWS server. The code will output a bak file to your AWS bucket which you need to create before creating an RDS instance:
+				<div class="w3-panel w3-grey w3-round w3-padding">
+					<code>
+						EXEC msdb.dbo.rds_backup_database<br>
+							@source_db_name = 'your_database_name',<br>
+							@S3_arn_to_backup_to = 'arn:asw:s3:::your-bucket-name/folder/db.bak',<br>
+							[@kms_master_key_arn='arn:aws:kms:region:account-id:key/key-id'],<br>
+							[@overwrite_s3_backup_file=0|1],<br>
+							[@type='DIFFERENTIAL|FULL'],<br>
+							[@number_of_files=n];
+					</code>
+				</div>
+			</li>
+			<li>
+				Do the following to attain an SQL script that recreates your database:
+				<ol>
+					<li>Open SSMS and connect to your database server</li>
+					<li>Right click on the database you want to backup and go to Tasks->Generate Scripts</li>
+					<li>Follow the prompts and you are all set.</li>
+				</ol>
+			</li>
+		</ul>
+		<p>Reference:</p>
+		<ul>
+			<li><a href="https://stackoverflow.com/questions/27034041/how-to-export-backup-db-from-sql-server-on-amazon-rds">Stack Overflow</a></li>
+			<li><a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/SQLServer.Procedural.Importing.html">AWS document about the database backup and restore</a></li>
+			<li><a href="https://ourcodeworld.com/articles/read/846/how-to-export-a-ms-sql-server-database-to-a-sql-script-database-to-sql-file-with-microsoft-sql-server-management-studio-17">How to generate a SQL script that recreate the database in SSMS</a></li>
+		</ul>
+	</div><br>
 </div>
 
 <!-- Footer -->
