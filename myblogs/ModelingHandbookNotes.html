@@ -170,15 +170,30 @@
 
 			<p>We can't move the sofa around the corner of the corridor in this problem. But what if the corner of the corridor had an angle of 120 degrees instead of 90? In this case we will have the problem setting and terminology as shown in the figure below if we can only move the sofa horizontally. We till have l = l' - (c+d) and we can still use similar triangles to derive that c = w * x' / a and d = w * a / x'. But instead of using Pythagorean Theorem, we use the law of cosines to derive that l'**2 = (x' + a)**2 + (a**2/x' + a)**2 - 2 * (x' + a) * (a**2/x' + a) * cos(2*pi/3) = (x' + a)**2 + (a**2/x' + a)**2 + (x' + a) * (a**2/x' + a). Therefore, l = sqrt((x' + a)**2 + (a**2/x' + a)**2 + (x' + a) * (a**2/x' + a)) - (w*x'/a + w*a/x'). In this question, a = 10/sqrt(3) (i.e. 5 / cos(pi/6)), w = 3. We can plot l(x') to find the minimum. When x' = 10/sqrt(3), l has minimum L_0 ~= 9.61.  </p>
 			<img src="..pictures/ModelingHandbook-NarrowCorridor-6.png" width="25%">
-			
+
 			<p>If we can tilt the sofa, we still have (L_0 - sqrt(w**2 - x**2))**2 + (h - x)**2 - (w**2 * (h - x)**2) / (w**2 - x**2) = 0. In this problem L_0 ~= 9.61, w = 3, h = 9. We use bisection method to find that x~= 2.24 and L_1 ~= 10.18 feet. Since the sofa is 9.5 feet long, which is less than 10.18, we can buy the sofa when the corner has an angle of 120 degrees.</p>
-			
+
 			Even though we move our sofa around the corner of the narrow corridor, it doesn't mean that we can move the sofa into the apartment. We still need to determine if the sofa fits through the door. Assume the corridor is 5 feet wide. The width of the door is 4 feet and its height is 8 feet.</p>
-			
+
 			<p>When the sofa just gets stuck at the door horizontally (i.e. the sofa has length L_0), we have the problem setting and terminology as shown in the figure below. By similar triangles, we have l/d_w = a/w => l = (a/w)*d_w where l is the length of the sofa, d_w is door width, a is the width of the corridor and w is the width of the sofa. In this problem a = 5, d_w = 4 and w = 3. So l = L_0 = 20/3.</p>
 			<img src="..pictures/ModelingHandbook-NarrowCorridor-7.png" width="25%">
-			
+
 			<p>If we can tilt the sofa, we can still use equation (L_0 - sqrt(w**2 - x**2))**2 + (h - x)**2 - (w**2 * (h - x)**2) / (w**2 - x**2) = 0. In this problem w = 3, h = 8, L_0 = 20/3. We can use the bisection method to find that x ~= 1.64 and L_1 ~= 7.60 feet. That means even if we can move the sofa around the corner of the narrow corridor we cannot move the sofa into our apartment :( </p>
+		</div>
+		<br><br>
+
+
+
+		<!-- Question Nine -->
+		<div class="w3-container w3-black">
+			<h3>Tale of the Tape</h3>
+			<p>The problem is about determining the trajectory of a baseball thrown from a starting point. We assume that there is no resistence from the air and thus the trajectory of the ball is a parabola which can be determined given three points of the trajectory.</p>
+
+			<p>If we are given the starting point and the highest point of the trajectory, we can also determine the trajectory of the baseball and here is how we can do it.</p>
+
+			<p>Assume that a parabola has expression f(x) = a * x**2 + b * x + c (a, b, c are constants and a is less than 0). We are given two datapoints, (x1, y1) and its maximum point (h, ymax) and we would like to find a, b, and c. Since f'(x) = 2 * a * x + b. And f(h) = ymax. 2 * a * h + b = 0 and thus b = -2 * a * h. And because f(h) = a * h**2 + b * h + c = ymax => a * h**2 - 2 * a * h**2 + c = ymax, a = (c - ymax) / h**2. Since f(x1) = a * x1**2 + b * x1 + c = ((c - ymax) / h**2) * x1**2 - 2 * (c - ymax) / h**2 * h * x1 + c = y1, c = (y1 * h1**2 + ymax * x1**2 - 2 * ymax * h * x1)/(x1 - h)**2. Therefore, c = (y1 * h1**2 + ymax * x1**2 - 2 * ymax * h * x1)/(x1 - h)**2, a = (c - ymax) / h**2, and b = -2 * a * h.</p>
+
+			<p>We can apply the same math model in skeet shooting. The clay disk can be treated as another baseball which launches at a fixed spot, it also has a parabolic trajectory. We assume that the trajectory of the pellet is a straight line. Thus when the pellet hits the clay disk, the straight line intercepts the parabola. If we can determine the the speed of the pellet, the travel distance of the pellet, and the speed of the clay disk we can determine when to fire the gun.</p>
 		</div>
 		<br><br>
 
