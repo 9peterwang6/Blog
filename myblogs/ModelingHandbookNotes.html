@@ -218,6 +218,27 @@
 		</div>
 		<br><br>
 
+
+
+		<!-- Question Eleven -->
+		<div class="w3-container w3-black">
+			<h3>Sunken Treasure</h3>
+			<p>"A shipwreck containing treasure chests filled with gold and silver was discovered recently in the Bermuda Triangle. Underwater photos revealed two treasure chests spaced 40 meters apart and it is up to you to determine how best to retrieve them. Your boat has a rope that can be lowered and tied around the treasure chests, but your captain insists he doesn't want to sail back and forth all day. He says that you have to choose one place to lower the rope, and then you can swim down with it. To collect the treasure, the chests must be moved to the end of the rope to be lifted to the  surface." The problem is to determine the best place to drop the rope.</p>
+			
+			<p>To determine the best place to drop the rope, we need to first determine what "best" means here. Our captain refuses to sail the boat back and forth to collect the chest. After dropping the rope, we need to swim down, find the chest and then push it to the end of the rope. For each chest we need to use our energy to swim down ,push the chest to the rope, tie it up and then swim up. We can use this piece of information here and try to minimize the energy consumed to collect all the chests. The best place will be the place that will consume the smallest amount of energy after looping the above steps to collect all the chests. Note that we can actually use other creterion to determine the best place as long as the result gives out a maximum or a minimum value.</p>
+			
+			<p>Assume that it takes constant amount of energy to swim down, tie up the treasure and to swim up. In this problem setting, the two chests are spaced 40 meters apart so we can say the total energy it takes to swim the the chests is also a constant because the total distance you are to cover is exactly 40 meters. So the only variable here is the energy it takes to push the treasure chest to the rope.</p>
+			
+			<p>How to determine this energy? When you are pushing the chest, you are working against the traction provided by the water and the seabed. We assume that the water does not move at the bottom of the sea， and the chests have similar size so that the traction from the water is approximately the same for all the chests when being pushed. We used a few assumptions to try to get rid of variables. Now we only need to deal the weight of the chest (because it determines the traction) and the traveling distance for the chests to the rope, because these two values determine the energy it takes to collect the chests.</p>
+			
+			<p>We can formally state the total energy it takes to collect all treasure by using all the constants we assumed above. But we can actually get rid of the constants when comparing the different solutions. And thus we can use the informal representation of the total energy W_total = weight_1 * d_1 + weight_2 * (40 - d_1). If we are given weight_1 and weight_2, we can easily determine the best place to drop the rope. When the chests weight the same, it doesn't matter where the rope is positioned, as long as it is between the two chests. When the weights are varied, it is most efficient to place the rope directly above the heavier of the two chests.</p>
+			
+			<p>What if we need to collect more than two chests? If the three chests are on the same line, then we can use the same method above. Mark the leftmost chest A, the middle chest B and the rightmost chest C, we can come up with W_total = weight_A * d_A + weight_B * d_B + weight_C * d_C. Note that (d_A + d_B + d_C) is greater or equal to d_AC. If the weights are equal， the position of the middle chest is the best place because the total traveling distance will be d_AC. If the weights are not equal, then we need to run an optimization algorithm to find a good place.</p>
+			
+			<p>If the chests are not on the same line, they will form a triangle. We can still use W_total = weight_A * d_A + weight_B * d_B + weight_C * d_C. If the weights are equal, the best place is the place that minimize the sum of the distances to the vertices in the triangle. This point is called the Fermat point. If the weights are not equal, the point will be pulled towards the heaviest weight and shifted near the second heaviest weight. But to determine the exact point, we still need to run an optimization algorithm to find a good place.</p>
+		</div>
+		<br><br>
+
 		<!-- Footer -->
 		<div class="w3-container  w3-black w3-center">
 			<div class="w3-display-bottom">
