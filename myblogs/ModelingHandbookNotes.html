@@ -248,6 +248,38 @@
 
 			<p>If X does not fall on line AB. Then we need another temperature measurement c from another point C. Assume CX and AB intersects at point D whose temperature is d. We need to first estimate d and d = a + AD * ((b - a) / AB). Then x = c + CX * ((d - c) / CD).</p>
 		</div>
+		<br><br>
+
+
+
+		<!-- Question Thirteen -->
+		<div class="w3-container w3-black">
+			<h3>Bending Steel</h3>
+			<p>Metal railroad tracks expand and contract due to weather. Assume that a railroad track is secured at both ends, if the track length increases, the track should rise off the ground. We would like to estimate how high the track can rise when it expands.</p>
+
+			<p>Assume that the track is made of steel and the track section has a length of L meters. The linear expansion coefficient alpha for steel is approximately 0.000002 meters per degree Celcius change in temperature. We also know that in our city the temperature changes on average about A degrees Celcious from a cold, winter day to a warm, summer day. Based on the above information, we can derive that the length of the track can increase about (L * A * alpha) meters.</p>
+
+			<p>The next problem is to determine how the track looks after expansion. A very simple shape can be that the track looks like an isosceles triangle illustrated below. Then we can use the Pythagorean Theorem to determine that the estimated height h = sqrt( (0.5 * L + 0.5 * (L * A * alpha))**2 - (0.5 * L)**2 ).</p>
+			<img src="../pictures/ModelingHandbook-BendingSteel-1.png" width="25%">
+
+			<p>If L = 120 and A = 25, then L * A * alpha = 0.006 meter and h = 0.6000075 meter.</p>
+
+			<p>In mathematical modeling, one should always check to see if the proposed model is reasonable in the real world. If not, it often serves as a good "starting point" and as a good guide for a new, revissed model. Based on real-life, physical models, it seems reasonable to model track expansion as the arc of a circle illustrated below. Here the radius r and central angle theta of the circle are unknown.</p>
+			<img src="../pictures/ModelingHandbook-BendingSteel-2.png" width="25%">
+
+			<p>Then we will use the following two equations to find r and theta: (theta/360) * 2 * pi * r = L + L * A * alpha; and sin(theta/2) = (0.5 * L) / r. After solving for r and theta, we can find h = r - r * cos(theta/2).</p>
+
+			<p>If L = 120 and A = 25, then r = 3464.335428 meters, theta = 1.9847493 degrees and h = 0.5196191 meter.</p>
+
+			<p>We can see that very small changes in length due to changes in temperature cause very large changes in heights. Engineers have avoided this problem in railroad tracks, bridges, and other structures by doing somehing very simple: leaving space the railroad tracks. The use of expansion joints is ubiquitous in building and designing railroad tracks, bridges, and other structures because of this problem.</p>
+
+			<p>The two models give somewhat similar results, the difference between the two models is approximately 8 centimeters. Generally a more sophisticated model gives a more accurate result, but if we don't require a very very accurate result, than we can use the simpler model to save some time and effort.</p>
+
+			<p>Another thing to point out is that since in both models, very little change in length can give a relatively large rise in height. If the numbers we use to compute is not accurate to some extent, than the computation result may have a huge error. This is the time when we need to make sure the input numbers have an acceptable number of significant figures.</p>
+
+			<p>Similar situations can be found when we try to hang a drawing on the wall and make sure its bottom is at a precise height. To hang the picture we may first need to screw two small eye screws into the vertical sides at the back of the drawing, place a taut string between the screws, put a nail into the wall and hang the drawing there. Since the drawing has its weight, the length of the taut string will be slightly greater than the distance between the screws, this difference determines the final height of the drawing on the wall. Even if we carefully measure the length of the screws we may still end up not hanging the picture at the precise height because the small error in the measurement leads to a large difference in a large deficit in height.
+		</div>
+		<br><br>
 
 		<!-- Footer -->
 		<div class="w3-container  w3-black w3-center">
