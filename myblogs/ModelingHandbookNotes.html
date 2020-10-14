@@ -281,6 +281,29 @@
 		</div>
 		<br><br>
 
+
+
+		<!-- Question Fourteen -->
+		<div class="w3-container w3-black">
+			<h3>A Bit of Information</h3>
+			<p>This problem is about how many trials is necessary in order to get the correct result out of N equally likely possibilities. It turns out to be a function of N but we will first look at the nature of this problem.</p>
+
+			<p>This problem is similar to a number guessing problem where someone has an integer from within a specified range of N (N is an integer greater than 0) integers in his mind and we ask the guy some yes or no questions in order to determine which integer it is. If we use f(N) to represent how many yes or no questions must be asked to get the correct result as, here are some properties of f(N):</p>
+			<ul>
+				<li>f(1) is 0 since we already know there is only one possible outcome; f(2) is one since we only need to ask one question like "Is it outcome A?" If it is yes then we know the outcome, otherwise we know it's the other outcome.</li>
+				<li>f(N) increases when N increases. That's because if we have more possibilities than before, we need to ask more questions to narrow down the extra possibilities. But we should note that f(N) is less than N.</li>
+				<li>f(m*n) = f(m) + f(n). If we split the original number of objects into m-sized groups, then it should take f(n) questions to figure out which group, and then f(m) questions to identify the single item within that group.</li>
+				<li>f(m**k) = k * f(m). We can derive this formula from f(m*n) = f(m) + f(n).</li>
+			</ul>
+
+			<p>Now we would like to determine what is f(N). It turns out that f(N) is log2(N) if we plot the function. Here is a formal proof.</p>
+
+			<p>Assume N is not a power of 2. Now take an arbitrary power k of n -- think of k as large. It must be that N**k is strictly between two consecutive powers of 2, say s and s+1. So 2**s < n**k < 2**(s + 1). Then f(2**s) < f(n**k) < f(2**(s+1)) => s * f(2) < k*f(n) < (s + 1) * f(2) => s/k < f(n) < (s+1)/k. If we do the same thing with n**k itself, we get s*log2(2) < k*log2(n) < (s+1)*log2(2) => s/k < log2(n) < (s+1)/k.</p>
+
+			<p>So the two quantities f(n) and log2(n) are between the same two bounds, and these two bounds differ by 1/k, hence |f(n) - log2(n)| < 1/k where k is arbitrary. So the only way to satisfy the above inequality is to have f(n)=log2(n).</p>
+		</div>
+		<br><br>
+
 		<!-- Footer -->
 		<div class="w3-container  w3-black w3-center">
 			<div class="w3-display-bottom">
