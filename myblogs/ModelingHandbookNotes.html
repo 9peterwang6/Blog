@@ -332,6 +332,25 @@
 		</div>
 		<br><br>
 
+
+
+		<!-- Question Sixteen -->
+		<div class="w3-container w3-black">
+			<h3>Rating System</h3>
+			<p>The problem is about modeling a rating system to evaluate how good a team or a player is. We are introduced a popular rating system called Elo rating system. Here is how it works:</p>
+
+			<p>There is an assumption that the players' ratings fit a logistic curve. At the first the Elo rating system assumed that players' rating fit a normal distribution. The United States Chess Federation later found that this model did not represent the actual results, particularly by the lower rated player and that a logistic distribution provided a better fit.</p>
+
+			<p>Now we have Player A who has a rating of R_A and Player B who has a rating of R_B. We first compute the expected score of Player A E_A = 1 / (1 + 10**((R_B - R_A)/400)). And similarly we compute the expected score for Player B E_B = 1 / (1 + 10**((R_A - R_B)/400)). When the game is finished, we will get the actual score for both players which are S_A and S_B. So we can update Player A's rating R'_A = R_A + K * (S_A - E_A) and Player B's rating R'_B = R_B + K * (S_B - E_B).</p>
+
+			<p>Notice that there is a factor K used when updating players' ratings. This K-factor dimishes the value of individual games played by players with more experience. This causes more fluctuations with novice players' ratings, but more stability with expert players' ratings. In reality, for different levels of players, the K-factor is often different.</p>
+
+			<p>Another thing is point out is that there is a constant of 400 here. It is actually a rule named "the Rule of 400". It states that if two players are more than 400 points apart, then to determine the expected result, you assume that they are exactly 400 points apart (i.e. |R_A - R_B| = 400). This rule prevents highly rated players from gaining points on their rating from playing people who are greatly below theri skill level, and thus falsely boosting their rating.</p>
+
+			<p>This type of modeling is used in aspects of social science where people only focus on the relative relations among a few variables. We don't need to look for an exact equation but we want to see the relations make sense and we can visualize it by ploting a sample curve that illustrates such relation. An example here will be the Law of Demand and the Law of Supply in Microeconomics.</p>
+		</div>
+		<br><br>
+
 		<!-- Footer -->
 		<div class="w3-container  w3-black w3-center">
 			<div class="w3-display-bottom">
