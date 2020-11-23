@@ -351,6 +351,30 @@
 		</div>
 		<br><br>
 
+
+		<!-- Question Seventeen -->
+		<div class="w3-container w3-black">
+			<h3>The Whe to Play</h3>
+			<p>This problem is about coming up with a gaming strategy. We use a game named Play Whe as a case study to see how we should play to maximize profit.</p>
+
+			<p>Play Whe is a popular game played in Trinidad and Tobago. In this game, players place any sum of money on one number from the srt 1 to 36. Players can bet on only one number per day. Each day a number is drawn and winners receive 24 times the amount each of them bet. All other money is lost and there are no consolation prizes. If you wish to pick a number the next day, then you must bet again.</p>
+
+			<p>After reading the rules, there is no difference betting the same number each day or varying the numbers you choose each day. That is because each round is an independent event. Betting the same number does not change the probability of winning. The next thing is to figure out what to do to maximize profit. For simplicity we will assume that we will always bet the same number in each bet.</p>
+
+			<p>A simple strategy is to bet the same amount of money, call it X each day. If we can win on the Nth day, then we have spent (X * N) of money and earn (24 * X), so the profit on the Nth day if we win P(N) = 24 * X - (X * N) = -X*N + 24*X which is a line going downwards. Notice that when N is greater than 24 we will end up losing money even if we win. This is not a good way to maximize profit because the day you can get the highest profit is on the first day and we know that probability of winning that much money is 1/36. The probability of not winning in 24 consecutive days is (35/36)**24 ~= 0.509. So the probability of winning at least once in 47 consecutive days is ~0.491 which is not so likely. We need to find a better way to not only win more but also maximize the probability of winning.</p>
+
+			<p>So here is another interesting strategy. We know that there are gamblers who will double down the amount of money they bet after losing the last round of gamble. We can adopt this strategy but in a different way: instead of doubling down, we increase our bet by a constant number each day. Call this number d then X_N = X + d * (N - 1). So we have P(N) = 24 * X_N - sum(k=1, N, X_k). If we plot P(N) against N we will see that P(N) increases initially, reaches its peak and then descreases and goes below zero. If we plug in different values of X and d, we will see that if we let d be constant and increase X, the day that reaches the highest profit and the day that P(N) = 0 will left shift. If we let X be constant and increase d, the days will not get shifted but the profits will increase. Here is a concrete example of this strategy: let X = d = 5. We will have a maximum profit of 1380 when N = 23 or when N = 24. When N = 47 we have P(47) = 0 and when N > 47 P(N) becomes less than 0. In this case, the probability of not winning in 47 consecutive days is (35/36)**47 ~= 0.266. So the probability of winning at least once in 47 consecutive days is ~0.734 which is more likely. And the probability of getting the highest profit is (35/36)**22 * (1/36) + (35/36)**23 * (1/36) = 0.0295 > 1/36. This strategy looks better.</p>
+
+			<p>It seems that we have found a decent winning strategy. But if we take a look at the mathematical expectation, we will see that even if we adopt the latter strategy the mathematical expectation is less than 0. This is because we invest sum(k=1, N, X_k) and if we end up not winning then the loss can be huge. And the probability of losing it all is not small. And so we would say that the Whe is a losing game and we should not play it unless we find a strategy that gives us a positive mathematical expectation.</p>
+
+			<p>Is there such games that you can have a strategy that gives you positive mathematical expectation? There is and sometimes these type of games appear to be a losing game: You are given an urn which contains 2 red balls and 3 brown ones. If you draw a red ball, you win a dollar, and if you draw a brown ball, you lose a dollar. Do you want to play? Before you say "No!", consider the precise rules: the drawing is done without replacement, and you may stop at any time you wish. The result is that you want to play, and with optimal strategy the expected outcome is 20 cents in your favor.</p>
+
+			<p>Here is the strategy: 1) If the first ball you draw is red (with p = 2/5), you win a dollar and stop. If the first ball is brown (with p = 3/5), you draw again. 2) If you now draw a red ball (with p = 2/4), you stop, and you have broken even. If the second ball you draw is brown (also with p = 2/4), you now know that there are two red balls and one brown ball left and continue. 3) If you now draw a red ball (with p = 2/3), draw again, and if this fourth draw is red, you are even, and you stop. 4) In all other cases, draw all the balls, and lose one dollar.</p>
+
+			<p>The kind of reasoning in this problem has been adapted to find a strategy for deciding when to sell a bond. The key characteristic that a bond shares with the above problem is that there is a known fixed terminal value. If you play our game to the end, you lose a dollar. If you hold a bond to the end, you get its face value. Think of a curve such that if the price goes above that curve, you sell and take your profit. Think also of a second curve such that if the price goes below that curve, you sell and cut your losses.</p>
+		</div>
+		<br><br>
+
 		<!-- Footer -->
 		<div class="w3-container  w3-black w3-center">
 			<div class="w3-display-bottom">
