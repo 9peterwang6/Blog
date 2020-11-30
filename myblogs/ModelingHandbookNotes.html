@@ -352,6 +352,7 @@
 		<br><br>
 
 
+
 		<!-- Question Seventeen -->
 		<div class="w3-container w3-black">
 			<h3>The Whe to Play</h3>
@@ -372,6 +373,71 @@
 			<p>Here is the strategy: 1) If the first ball you draw is red (with p = 2/5), you win a dollar and stop. If the first ball is brown (with p = 3/5), you draw again. 2) If you now draw a red ball (with p = 2/4), you stop, and you have broken even. If the second ball you draw is brown (also with p = 2/4), you now know that there are two red balls and one brown ball left and continue. 3) If you now draw a red ball (with p = 2/3), draw again, and if this fourth draw is red, you are even, and you stop. 4) In all other cases, draw all the balls, and lose one dollar.</p>
 
 			<p>The kind of reasoning in this problem has been adapted to find a strategy for deciding when to sell a bond. The key characteristic that a bond shares with the above problem is that there is a known fixed terminal value. If you play our game to the end, you lose a dollar. If you hold a bond to the end, you get its face value. Think of a curve such that if the price goes above that curve, you sell and take your profit. Think also of a second curve such that if the price goes below that curve, you sell and cut your losses.</p>
+		</div>
+		<br><br>
+
+
+
+		<!-- Question Eighteen -->
+		<div class="w3-container w3-black">
+			<h3>Water Down the Drain</h3>
+			<p>The problem is about how to estimate the amount of water wasted annually due to a leaking tap or faucet in the United States. First of all, there are two types of water leakage sources in a house: tap or faucet. We need to measure how much water is leaked from these two sources per minute on average, scale it to a day and then a year for each source. Do some research to find out how many taps and faucets a house has on average in the US. Factor the numbers so we will get the total amount of water wasted annually. We can also look up the water fees and see how much money we waste per year due to water leakage.</p>
+
+			<p>After making the estimation, we can compare the numbers we have with similar research or surveys done by agencies to see how they made the estimation and what specific settings they had. A good resource is the US Geological Survey.</p>
+		</div>
+		<br><br>
+
+
+
+		<!-- Question Nineteen -->
+		<div class="w3-container w3-black">
+			<h3>Viral Marketing</h3>
+			<p>This problem is about "a word-of-mouth". We would like to measure how "viral" can this viral market be like and see if we should adopt this method instead of traditional marketing methods.</p>
+
+			<p>Let's say we have created an advertisement and we show it to A people. Assume that after viewing our advertisement, each of the viewers today will send our ad to B other people the next day. Based on this information we can say that the next day there will be (A * B) new viewers. On the third day, the (A * B) "new" viewers yesterday will send to ((A * B) * B) other people based on the assumption. So we have ((A * B) * B) new viers on the third day. Note that based on our assumption the viewers on the first day will not send the ad to other people on the third day.</p>
+
+			<p>Now we can use a function f(x) model how many new viewers we have each day. Suppose x means the x-th day of our ad campaign and f(x) = A * B**(x-1). This function is exponential which means f(x) doubles very quickly it has a J-shaped when you plot f(x). The ability to reach a lot of people in a relatively short time like an epidemic is actually why we call this type of marketing "viral marketing".</p>
+
+			<p>People may argue that viral marketing is better than traditional marketing method like billboards or TV commercials during sitcoms in terms of the number of people the ad can reach. The traditional forms of advertising only reach the one group of people who see it and viewership generally does not grow. For example mostly commuters on that route will see a billboard, those who watch the show will only see a commercial during a sitcom. But here I will say the type of viewers will determine if the campaign goes viral. If a guy who knows a lot of people sees the ad (s)he may help doing the spread for you. And if you show the ad to a person who has a very small social network, (s)he may not help you tip the ad. So we have to make sure we deliver the ad to the right person when we show the ad to the initial viewers.</p>
+
+			<p>The other problem of this model is that there is actually a limit of the maximum number of people we can reach but our model cannot show it. f(x) grows so fast that even if we let A and B be small (e.g. A = 5 and B = 3), f(x) can be immense after a relative short period of time so the total number of viewers does not make sense (f(1) + f(2) + ... + f(30) ~= 5.14 * 10**14 > 7 billion people in this world). There should be some restrictions to this model.</p>
+
+			<p>We can replace this model with a more complex one with the following settings:</p>
+			<ul>
+				<li>The total population is N.</li>
+				<li>Categorize the total population into three groups: potential viewers who haven't seen the ad; "infectious" viewers who saw the ad and are willing to send to others; "not infectious" viewers who saw the ad but will not share it to others for some reason.</li>
+				<li>On the n-th day, we have the number pv(n) of potential viewers, iv(n) of infectious viewers, niv(n) of not infectious viewers, and tiv(n) of total infectious viewers.</li>
+				<li>On the (n+1)-th day, each infectious viewers share the ad to a * s(n) of potential viewers where a is a fixed fraction; there will be (b * tiv(n)) of infectious viewers who become not infectious at the end of the day. Here b is also a fixed fraction.</li>
+				<li>pv(1) = N, iv(1) = 1, niv(1) = 0, tiv(1) = 1</li>
+			</ul>
+			<p>So now we have the following equations:</p>
+			<ul>
+				<li>pv(n+1) = pv(n) - iv(n+1)</li>
+				<li>iv(n+1) = a * pv(n) * tiv(n)</li>
+				<li>tiv(n+1) = tiv(n) + iv(n+1) - niv(n+1)</li>
+				<li>niv(n+1) = b * tiv(n)</li>
+				<li>pv(1) = N, iv(1) = 1, tiv(1) = 1, niv(1) = 0</li>
+				<li>pv(n) + tiv(n) + niv(n) = N</li>
+			</ul>
+
+			<p>The above model will give you an S-shaped curve for tiv(n). We can actually use this model the spread of an epidemic. And if take into account vaccination, pv(1) will be smaller than N; if we take into account quarantine, a will decrease and hence iv(n), tiv(n) will be smaller when compared to the case without quarantine.
+
+			<p>If we want to put in more realistic restrictions, we can remove fractions a and b, decide on what conditions make infectious viewers successfully share the ad and that infectious viewers stop being infectious and then run a simulation.</p>
+		</div>
+		<br><br>
+
+
+
+		<!-- Question Twenty -->
+		<div class="w3-container w3-black">
+			<h3>Sunrise, Sunset</h3>
+			<p>This problem is about modeling the lengths of days throughout the year. The length of day is defined to be the number of hours of sunlight or the length of time from the sunrise to the sunset. To model it, we first need to collect data. We can find sunrise and sunset of a city at <a href="https://www.sunrisesunset.com/" target="_blank">www.sunrisesunset.com</a>. It would be ideal to collect sunrise and sunset data for each day of a selected year but for simplicity we can collect the data for the same day of each month.</p>
+
+			<p>After we get the sunrise and sunset times, we compute the hour of sunlight and we make a scatter plot of the length of day versus the month number. We can see that there is a periodic trend. So to fit the data we will need to use a periodic function (e.g. sine, cosine function). To fit the data we can use a graph calculator or use Matlab or Lingo.</p>
+
+			<p>As the Earth rotates at a 23 degrees 26 minutes from the vertical and it revolves around the Sun, not all locations receive the same amount of sunlight each day. If we model cities having different latitude we will get very different models and we can tell it by examining the average, maximum, and mimimum hours of sunlight each city has throughout a given year. This is basically a mathematical illustration of our middle school geography knowledge.</p>
+
+			<p>We can actually do some interesting things with sunlight. One example will be using the hours of sunlight data to locate its corresponding city. Another example would be locating the corresponding city using the measurements of sunshade.</p>
 		</div>
 		<br><br>
 
