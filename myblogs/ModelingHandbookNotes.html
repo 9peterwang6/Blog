@@ -441,6 +441,39 @@
 		</div>
 		<br><br>
 
+
+
+		<!-- Question Twenty One -->
+		<div class="w3-container w3-black">
+			<h3>Surveying the Ancient World</h3>
+			<p>This problem is about measuring unknown heights. You may think that this is very easy because you have rulers, measuuring tapes or even smartphones to help you measure unknown heights, and angles. But what if you need to measure something that is hard to measure (e.g. the height of a volcano)?</p>
+
+			<p>In the ancient world, surveryors used a tool named astrolabe to measure angles. We can make a simple astrolabe based on the picture below.</p>
+			<img src="../pictures/ModelingHandbook-SurveyingTheAncientWorld-1.png" width="25%">
+
+			<p>With this tool, we can measure the height of a lightpole with the following steps:</p>
+			<ul>
+				<li>Stand beside the lightpole at a distance;</li>
+				<li>Measure this distance, call it d;</li>
+				<li>Measure the angle formed between this lightpole and the horizontal plane. Look through your straw of your astrolabe until you locate the peak of the lightpole. Fix the position of your astrolabe and then read off and record the angle formed. Call this angle theta;</li>
+				<li>Calculate the height h of the lightpole. h = d * tan(theta).</li>
+			</ul>
+			<p>The above method works when the point on the ground that is directly below the highest peak is reachable. But in the case of a volcano, it is impossible to reach such point. So we need to modify the our model a bit like this:</p>
+			<ul>
+				<li>Stand away from the volcano at a distance;</li>
+				<li>Measure the angle formed. Call it theta1;</li>
+				<li>Walk straight away from your first measurement point and stop at a second point. Make sure the second point is on the same line formed on the ground by the volcano and the first measurement point;</li>
+				<li>Measure distance between the two measurement points. Call it d;</li>
+				<li>Measure the angle formed. Call it theta2;</li>
+				<li>Calculate the height h of the volcano. Here we have h = ((h/tan(theta1)) + d) * tan(theta2). Therefore h = (d * tan(theta1) * tan(theta2)) / (tan(theta1) - tan(theta2)). If we use sine instead of tangent we get h = (d*sin(theta1)*sin(theta2)) / sin(theta1 - theta2).</li>
+			</ul>
+
+			<p>Now it seems that we can measure any unknown heights using the modified model. But how to make sure our calculation is accurate? You may wonder why we come up with such a question. Assume that the astrolabe we make can generate an error of at most 1 degree, and the measuring tape we use can gerenrate an error of at most 1 inch. In most cases, the theta we get will almost always be far greater than 0 and much smaller than 90 degrees. That means tan(theta) changes very little even if we have a measurement error of 1 degree, or the error rate of tan(theta) is very small. Since we are doing multiplication in the first model, the error rate of h is very small. However, the second model is a bit different. Here theta1 and theta2 can be extremely close to each other, which make sin(theta1 - theta2) very close to 0. And because we are doing division in the second model, even a tiny error in theta1 or theta2 can drastically change the result. This happens when d is very small. If d is very large, then theta2 is going to be very small, which makes the error rate of sin(theta2) and hence h have a large error rate.</p>
+
+			<p>Therefore, in order for our model to be accurate we need to find a good d so that we can avoid the two scenarios that lead to large error rate of h. To do that, we first need to represent the error rate of h. We find the partial derivative of h with respect to theta2, and then devide by h. Here the partial derivative represents the "error" of h. We find that the error rate of h = sin(theta1) / (sin(theta2) * sin(theta1 - theta2)). Our goal is to minimize the error rate of h. So we need to maximize (sin(theta2) * sin(theta1 - theta2)), which happens when theta2 = theta1 - theta2.</p>
+		</div>
+		<br><br>
+
 		<!-- Footer -->
 		<div class="w3-container  w3-black w3-center">
 			<div class="w3-display-bottom">
