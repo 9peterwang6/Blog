@@ -474,6 +474,26 @@
 		</div>
 		<br><br>
 
+
+
+		<!-- Question Twenty Two -->
+		<div class="w3-container w3-black">
+			<h3>Packer's Puzzle</h3>
+			<p>This problem is about estimating the number of oranges inside a box. One easy way is to weigh the whole box and then divide it by the weight of a single orange. Another way is to think about the maximum number of oranges that can be packed into the box.</p>
+
+			<p>To do this, we will first need to make a few assumptions: the oranges are spheres and they have the same shape, the edges of the box will not overlap with those of oranges, and the box is rigid.</p>
+
+			<p>And then, we will first solve a similar but simpler problem: packing oranges in a two dimensional box. By solving this problem we can try to find a pattern of the solution and apply it to three dimensional boxes.</p>
+
+			<p>We can first get an upper bound of this problem by computing the capacity of the two dimensional box and divide it by the area of an orange. But this number should not be our estimation. This is because there is a lot of space where you cannot place an extra orange inside the box when it's full. However, we can make use of this concept to help reduce the wasted space. Let's call this number density.</p>
+
+			<p>So we need to minimize this type of wasted space. To do this, we would like to arrange the oranges regularly so that not only can we minimize the wasted space in a unit, but also we can replicate the pattern across the whole surface. There are two types of regular arrangements for circles: square arrangement, and hexagonal arrangement. In a square arrangement, each circle touches four other circles. In a hexagonal arrangement, each circle touches six circles. See the following illustration of two arrangements.</p>
+			<img src="../pictures/ModelingHandbook-PackersPuzzle-1.png" width="25%">
+
+			<p>After determining the best arrangement on a plane, we can stack up this plane until we cannot place any more oranges into the container so we end up having our best guess of the number of oranges inside a container.</p>
+		</div>
+		<br><br>
+
 		<!-- Footer -->
 		<div class="w3-container  w3-black w3-center">
 			<div class="w3-display-bottom">
