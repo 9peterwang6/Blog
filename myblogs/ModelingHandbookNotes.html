@@ -494,6 +494,33 @@
 		</div>
 		<br><br>
 
+
+
+		<!-- Question Twenty Three -->
+		<div class="w3-container w3-black">
+			<h3>Flipping for a Grade</h3>
+			<p>As the name entails, we need to flip a coin ten times to determine our grades. Each of us can choose to play one of the following two games to decide our grade:</p>
+			<ul>
+				<li>Game 1: Flip a fair coin ten times. For each head, the student wins 2 points, but for each tail, the student loses 1 point.</li>
+				<li>Game 2: Flip a fair coin ten times. For each head, the student wins 100 points, but for each tail, the student loses 99 points.</li>
+			</ul>
+			<p>And here is how your grade will be based on your final score:</p>
+			<ul>
+				<li>Lower than -10 => F</li>
+				<li>Greater than or equal to 10 but smaller or equal to 0 => D</li>
+				<li>Greater than or equal to 1 but smaller or equal to 10 => C</li>
+				<li>Greater than or equal to 11 but smaller or equal to 99 => B</li>
+				<li>Greater than or equal to 100 => A</li>
+			</ul>
+
+			<p>Which game should we choose to get the best grade?</p>
+
+			<p>The expected values of both games are the same. So the average case will be a C for both games. However if we do a grade breakdown, we will find that the best case scenario for game 1 is to end up with a B; the worst case scenario for game 1 is to have a D, while in the best case for game 2 is an A, and in the worst case is a F. And actually in game 1 there is no chance that we get an A or an F whereas in game 2 there is no chance that we get a B or a D.</p>
+
+			<p>So now we know that both games have the same expected value, but game 2 has a greater swing in the final grade. This means that game 2 has a greater standard deviation than game 1. What does this piece of info can help you? If you want to play it safe, go with game 1. If you want to take a risk, go with game 2. Based on this two metrics (expected value, standard deviation), the outcome of the two games should be the same on average, but different people have different risk tolerance levels so they will end up picking different games.</p>
+		</div>
+		<br><br>
+
 		<!-- Footer -->
 		<div class="w3-container  w3-black w3-center">
 			<div class="w3-display-bottom">
