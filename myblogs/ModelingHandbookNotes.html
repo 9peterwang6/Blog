@@ -521,6 +521,30 @@
 		</div>
 		<br><br>
 
+
+
+		<!-- Question Twenty Four -->
+		<div class="w3-container w3-black">
+			<h3>Prescient Grading</h3>
+			<p>The problem is about predicting students' exam performance based on their homework grades. We are given students' homework and exam performance in quarter 1 and students' homework grades in quarter 2 and we would like to predict their performance in their quarter 2 exam.</p>
+
+			<p>The data is shown as follows.</p>
+			<img src="../pictures/ModelingHandbook-PrescientGrading-1.png" width="25%">
+
+			<p>We first scatter plot the homework grades against the exam grade to see if there is a relationship between the two. The plot is shown below. If your data are from a large set, take a small sample of that set that is easier to handle.</p>
+			<img src="../pictures/ModelingHandbook-PrescientGrading-2.png" width="25%">
+
+			<p>And then we need to draw a smooth line on the plot that crosses as many data points as possible. We call this line the line of best fit. In this problem the line of best fit appears to be a straight line. But that doesn't mean the line of best fit is a straight line. So we need to find some evidence that supports our idea that the line of best fit is a straight line. We use correlation coefficient r to help do this job. We know that if r is closer to 1, a strong positive linear relationship exists between home and test grades; if r is closer to 0, a weak positive linear relationship exists between home work and test grades. In this case, r = 0.9234 so there is a strong positive linear relationship. Therefore, the line of best fit is indeed a straight line and we can use linear regression to find this line of best fit. We end up with y = 0.8228 * x + 9.8448</p>
+
+			<p>We can now use this equation to predict quarter 2 exam grade for each student gien their quarter 2 homework grade.</p>
+
+			<p>At the end of quarter 2, we have the students' exam grades so we can evaluate how well our predictive model performs. We use the residual, which is the actual value minus the predicted value, for evaluation. Ideally we want to see our predictions to very very close to the actual value, so the absolute value of residual should be very very close to 0. The following rows of data shows how good our model does. Here the ABS(Residual) column displays the absolute value of the residual.</p>
+			<img src="../pictures/ModelingHandbook-PrescientGrading-3.png" width="25%">
+
+			<p>From the table above we can see that 17 out of 33 students' residuals are within a 5 point margin. So our model does OK. But we are not satisfied because we can only predict half of the whole class' grades accurately if we view that the absolute value of residual is smaller or equal to 5 as accurate. How to improve this model? There are some ideas. One idea is to remove the data points that gives you a relatively large absolute value of residuals. Another idea is to a higher order equation with regularization to fit the data.</p>
+		</div>
+		<br><br>
+
 		<!-- Footer -->
 		<div class="w3-container  w3-black w3-center">
 			<div class="w3-display-bottom">
