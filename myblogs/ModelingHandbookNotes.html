@@ -545,6 +545,26 @@
 		</div>
 		<br><br>
 
+
+
+		<!-- Question Twenty Five -->
+		<div class="w3-container w3-black">
+			<h3>Picking a Painting</h3>
+			<p>This problem is about picking the best painting possible under this situation: a total of N paintings are shown to you. You need to decide if you want this painting or not right away. There is no turning back. You will not know what the paintings are until each of them is displayed, but you know that there is a relative ranking among the paintings and you can tell which one is better or worse. What strategy should you take to pick the best painting?</p>
+
+			<p>N could be any integer greater than 1 so we can start with small numbers to help determine what our stategy should be. When N = 2, what ever strategy we take we will always have a 50% chance of getting the best painting. When N = 3 things start to become interesting. We can list all the possible permutations of the order that all paintings are shown. Assume that (A) means the best painting, (B) means the second best and (C) means the worst. We can have list following orders: (A, B, C), (A, C, B), (B, A, C), (B, C, A), (C, A, B), (C, B, A). We will utilize these possible orders to come up with our strategy.</p>
+
+			<p>A random pick will result in 33% chance of getting the best painting, but given the fact that we have the ability to tell which painting is better, we may use this ability to maximize our chance here. When the first painting is shown, there is not much we can do because we don't know if the paintings coming up will be better. And since there is a 2/3 chance that the best painting is not the first one to be displayed it is better we give up the first painting. Then for the second painting, if it is better than the first one, we should pick it because 2/3 times we will end up picking A when this case happens. If it's worse than the first painting, we give up and pick the last one. This strategy gives us a 50% chance of picking up the best painting.</p>
+
+			<p>What about when N = 4? There are 4! = 24 possible orders in this case. We can extend this strategy to reject the first 1 or 2 paintings and choose the next one shown that is better than the previous ones. This will be successful with a probability of 11/24 or 5/12 respectively.</p>
+
+			<p>So for N paintings there are N! possible orders. We would like to reject the first (p-1) paintings and choose the next one if it is better than the previous (p-1) paintings, otherwise reject and choose the next one if it is better than previous ones until it is the last painting you can choose. How likely are you going to take the best painting? First of all, you need to have the best painting positioned at a position k greater than or equal to p so you will not reject the best painting. Next, you need to have the best painting among the first (k - 1) painting placed among the first (p - 1) paintings so you will not pick a painting before the best is shown. For a particular position k, the probability that the best painting is positioned at k is (1/N); the probability that the best painting among the first (k - 1) paintings is placed among the first (p - 1) paintings is (p - 1)/(k - 1). So the probability that you can pick the best painting at position k is (p - 1)/(N * (k - 1)) where k is greater than or equal to p and less than or equal to N. And the probability of success for this strategy is SUM(k = p, N, (p - 1)/(N * (k - 1))) = ((p - 1)/N) * (1/(p-1) + 1/p + 1/(p+1) + ... + 1/N). Now we need to find the best p to maximize this probability. For large N and p, the expression above is approximately (p/N) * (ln(N) - ln(p)). If we set x = N/p, the expression becomes (ln(x)/x). This has a maximum at x = e, so the we should pick N/p as close to e as possible.</p>
+
+			<p>This strategy can be proved to be the best strategy. The full proof can be found in Fred Mosteller's <i>Fifty Challenging Problems in Probability with Solutions</i>.</p>
+
+			<p>We can apply similar strategy to another problem named "theater problem". In this problem we have an infinite road on which has parking spaces that are filled already as we approach the theater. We want a space that is as close to the theater as possible. Assume we know the location of the theater, and the probability that any space will be available, what should be our strategy? Give up the first few empty spots and then take the next one if we cannot go back by making illegal U-turns.</p>
+		</div>
+		<br><br>
 		<!-- Footer -->
 		<div class="w3-container  w3-black w3-center">
 			<div class="w3-display-bottom">
