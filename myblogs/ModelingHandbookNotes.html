@@ -565,6 +565,28 @@
 			<p>We can apply similar strategy to another problem named "theater problem". In this problem we have an infinite road on which has parking spaces that are filled already as we approach the theater. We want a space that is as close to the theater as possible. Assume we know the location of the theater, and the probability that any space will be available, what should be our strategy? Give up the first few empty spots and then take the next one if we cannot go back by making illegal U-turns.</p>
 		</div>
 		<br><br>
+
+
+
+		<!-- Question Twenty Six -->
+		<div class="w3-container w3-black">
+			<h3>Changing It Up</h3>
+			<p>Suppose you have a cash register till (drawer) that has some extra rolls for coins. You want to make effective use of it because if you need to deal with customers that pay you cash, and having too few coins for paying back the change will keep them waiting for the drawer to restock. But at the same time if you want to put in a lot of coins the drawer becomes too heavy to be opened quickly, which also keeps customers waiting. How many rolls of each type of coins should be stocked in the cash register till so that we don't need to frequently restock and keep the drawer relatively lightweight?</p>
+
+			<p>We first need to think about where we are using the cash register till because different countries have different types of coins. Here we use the United States as an example but the same model applies to other currencies.</p>
+
+			<p>In the U.S there are four types of coins: a penny (1 cent), a nickel (5 cents), a dime (10 cents), and a quarter (25 cents). In each transaction, customers will receive 0 to 4 pennies, 0 or 1 nickel, 0 to 2 dimes, and 0 to 3 quarters. And there are 100 possible amounts of change to be given (0.00 to 0.99). In these 100 transactions, a total of 200 pennies, 40 nickels, 80 dimes and 150 quarters are given back. If all values of change are equally likely, then on average we need 2 pennies, 0.4 nickel, 0.8 dime and 1.5 quarters for each transaction. If we use this piece of information to determine how many rolls of each coin we should have, then we can do the following: because we need nickel the least, so we would only store one roll of nickels; since we need twice as much dimes than nickels on average, so we should store 2 rolls of dimes. By the same token we need 4 rolls of quarters and 5 rolls of pennies. So here we need a total of 12 rolls of coins.</p>
+
+			<p>That's a little bit too much and actually the drawer does not have this many rolls. There are some ideas to reduce the number of rolls while maintaining the ratios. We can use dime as a guide instead of nickel and store 1 roll of dimes, then we only need 1 roll of nickel, 2 rolls of quarters and 3 rolls of pennies, which gives us a total of 7 rolls. 7 is a more reasonable number but still there is not that much space for coins.</p>
+
+			<p>How do we further refine our model? Seasoned cashiers know that many customers who like to pay in cash also pay enough pennies to they only get "silver" (i.e. nickel, dime, or quarter) back. This means that we actualy give out fewer pennies and receive more. So we can reduce the rools of pennies to 1 and consider increasing the number of rolls for silver when we frequently run out of one kind of them. In fact that actually changes the average number of each type of coins we need for each transaction. Another idea is to measure how many rolls of coins a cashier can be filled out and use the ratio of each type of coins to get the number of rolls.</p>
+
+			<p>Another factor that changes each type of coins we need on average is tax, different tax rate results in a different distribution of the value of change. For example, if the tax rate is 7.75%, then the frequency of the following fractions change after we compute and round the fraction to two digits after the decimal point: there will be no 0.21, 0.35, 0.48, 0.63, 0.76 and 0.9 and there will be twice more frequent for the following fractions: 0.00, 0.01, 0.02, 0.03, 0.05 and 0.06. So a total of 199 pennies, 39 nickels, 73 dimes and 140 quarters are given back on the new set of 100 transactions.</p>
+
+			<p>Some other factors may also be considered, for example, if we find out that most customers only pay in cash for transactions that are less than $20 when tax is included. We may need to "double-count" change values for transactions less than $10 and consifer values between $10 and $20 once. But the main idea is to somehow measure the frequency of each possible change value, compute the expected value for each type of coin and then use the relative ratio to determine the number of rolls for each type of coins. If we need to prepare for a change order from banks each week, we will need to multiply the expected value to by an integer (e.g. 10) to get whole numbers.</p>
+		</div>
+		<br><br>
+
 		<!-- Footer -->
 		<div class="w3-container  w3-black w3-center">
 			<div class="w3-display-bottom">
