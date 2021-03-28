@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>My CS177 Notes</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="../w3.css">
+	</head>
+
+	<body>
+		<div class="w3-container w3-black w3-center">
+			<h1>UCR CS177 Modeling And Simulation</h1>
+		</div>
+
+		<div class="w3-container w3-black">
+			<h3>Lecture 1: Introduction</h3>
+			<p>This course is about modeling via simulation. We may have learned to solve a real world problem by constructing a math model. You may also know about 3D modeling. But why do we need modeling? There are a few reasons:<p>
+			<ol>
+				<li>Design Evaluation: Building a physical and complex system is time-consuming and expensive. So we should determine whether a design works before building it rather than the other way round.</li>
+				<li>Comparing Numerous Alternatives: Oftentimes there are a lot of possible strategies/methods to solve a problem/complete a task, we want to know which option is the best without trying all the possiblities.</li>
+				<li>Emulate Dangerous or Impossible Situations: There are scenarios that are too dangerous to try (e.g. testing a war strategy, experimenting a possibly unstable chemical reactions, test safety systems in a nuclear reactor) or impossible to examine in real life (e.g. design a good defense for Quidditch). We need to construct a model to emulate this type of situations.</li>
+				<li>Change Time Scales: On one hand, some events happen extremely fast (e.g. a car crash, a big bang). We want to slow them down to figure out what happened and why it happened during this entire event. On the other hand, some events happen relatively really slow (e.g. global warming, epidemics, extinction of endangered species). We would like to construct a model to see how things would go if the current situation persists (, which is kind of similar to the next reason).</li>
+				<li>Predict the Future: We want to use the past experience to predict what is likely to happen in the future so we can prepare for it (e.g. weather forcasting) or make a profit (predicting stock prices, do high frequency trading based on price predictions a few milliseconds into the future).</li>
+				<li>Cost Savings: It is very difficult to learn to fly aircrafts and newbies may make a lot of mistakes when learning, which may cause catastrophic outcomes. It is better we build a model aircraft and let newbies begin from there. Another example would be practice race driving. It may be costly to practice when prepping for a competition (e.g. Pikes Peak Internation Hill Climb, Formula One, WRC, etc) because you need to customize your race car often and it may not be possible to practice at the real course whenever you want. It is better we build a model, especially a simulation model so that we can not only practice but also try to see which customizations work before actually making the change.</li>
+			</ol>
+
+			<p>It sounds to me that modeling is good enough for problem solving already. Why do we want to blend in with simulation? Here are a few reasons why we would like to use simulation with modeling:</p>
+			<ol>
+				<li>Evaluate complex models: models are good when you are considering only a handful of objects, but if the number of objects increases and these objects can affect each other, then it becomes extremely difficult to compute the exact solution because you are actually not 100% what is going to happen and what the impact will be to subsequent events (e.g. Dumping a ball onto the ground vs. dumping a full bucket of balls onto the ground. When you dump a full bucket of balls onto the ground, balls may collide with each other, the change of directions may cause new colides.). Simulation will be very helpful here. Essentially we are trying to let everything happen to see how well the model is working intead of mathematically proving the model is working because the model is too complicated.</li>
+				<li>Hypothese testing: there are cases where the real system may not be available, we would like to predict effects of the change we would like to make on the current system (e.g. changing workload, operating policies).</li>
+				<li>Validate analytical models: Analytical models require many simplifying assumptions. We can use simulation to test how sensitive the results are to each of those assumptions.</li>
+				<li>Control extraneous factors: Simluation is useful when you want to compare your models on the exact same situation and see how each of them works. An example is record the workload from one day in a hospital emergency ward and play it back exactly for each scheduling policies or job assignments you want to compare.</li>
+			</ol>
+
+			<p>Hmm... So we can use simulation to validate/test the model we created. Or we can build a simulation model to solve problems. But are there any drawbacks using simulation? There are and here they are:</p>
+			<ol>
+				<li>Simulation programs can be expensive, time-consuming to develop and run.</li>
+				<li>Programs can be buggy.</li>
+				<li>The simulation result is just an estimate. The solution it provides is not exact, meaning that it can change if you re-run the simulation although it may still fall into the pattern you find out. Not seeing something in your simulation does not mean that something cannot happen. It might be a black swan.</li>
+			</ol>
+
+			<p>After knowing the pros and cons about simulation. We can actually dive into simulation modeling and see what people have done using simulation. You may ask why we do not seem to care about using simulation to validate models. That answer is to validate the model via simulation, we are also constructing a simulation model, but catered to the problem of validating the math model we created.</p>
+
+			<p>There are four types of simulation models if we consider the following two factors: (1)Are there factors of randomness? and (2)Is time a factor? Based on answers of the above questions we can categorize the model into:</p>
+			<ol>
+				<li>Deterministic-Static Simulation: no randomness, not time-variant. Example: floating-point arithmetic (used to simulate real number arithmetic on computing systems. Since they are finite they introduce errors. You need to make sure that floating-point arithmetics have the desire precision you want when using it); scale models (an example is scaling down the galaxy to a size that we can display it in a museum. Because the actual galaxy is too big for a museum so we created a simulated galaxy).</li>
+				<li>Deterministic-Dynamic Simulation: no randomness, time-variant. Example: computational fluid dynamics; finite-element methods (use numerical methods to solve differential equations set, the answer simulates liquid, gas, or structures)</li>
+				<li>Stochastic-Static Simluation: has randomness, not time-variant. Example: Monte Carlo methods (an example using this method is determing the probability of showing heads in a coin flip. We try flipping a coin for N times and record the number of appearance of heads H, then (H/N) will be the probability of the showing heads in a coin flip. The larger the N is, the more accurate the result will be).</li>
+				<li>Stochastic-Dynamic Simulation: has randomness, time-variant. Example: Brownian motion; Discret-event stochastic models(random walk). This course will focus on discret-event stochastic models (think of it as a Marcov chain).</li>
+			</ol>
+
+			<p>An example: The Trained-Flea Experiment. A trained flea stands on a (2n+1) * (2n+1) chess board (this enviromnemt setting is called system). Initially he stands on the middle square (this is called the initial state). Each time a bell rings, he hops randomly to 1 to 8 adjacent cells (this is called an event). The problem is to find the average number of hops before he falls off the board (this is the experiment, or what we are going to find out using simulation). To simulate the problem is simple, one can write some code to generate a possible path and record the path length. Run this program multiple times and then you will get a estimate of the average path length.</p>
+
+			<p>We can actually compare the math modeling and simulation modeling in this problem here by solving this problem. We can first solve a simpler version of this problem: The Trained-Flea Experiment on 3x3 chess board. Because the board is symmetric and that the flea's hopping action is memoryless, meaning that it can revisit a square, we can categorize the squares into three types: corner squares, mid-edge squares, and center. And then we solve this problem iteratively using dynamic programming. We can convert this problem to a finite horizon model with a simple "trick": suppose we ranout of food, so the flea will starve (to death) after his i-th hop. Thus, let a_i, b_i, c_i be the respective average of hops until he falls off the board (or dies) - starting from each square class. We can quickly derive that a_1 == b_1 == c_1 == 1 because the flea is on the board , so he needs at least one hop to fall of the board, and his food is only enough for him to make one hop only. When i is greater than 1, there are following conditions:</p>
+			<ol>
+				<li>If the flea is initially standing on a corner square, then a_i = (5/8) * 1 + (2/8) * (1+b_i-1) + (1/8) * (1+c_i-1) (i > 1)</li>
+				<li>If the flea is initially standing on a mid-edge square, then b_i = (3/8) * 1 + (2/8) * (1+a_i-1) + (2/8) * (1+b_i-1) + (1/8) * (1+c_i-1)</li>
+				<li>If the flea is initially standing on a center square, then c_i = (4/8) * (1+a_i-1) + (4/8) * (1+b_i-1)</li>
+			</ol>
+
+			<p>We can iterate these equations to eliminate the starvation "trick", the solution is the limit of c_i as i approaches positive infinity. When i approaches positive infinity, then i ~= i - 1, so we can throw away the subscripts and get the following three equations:</p>
+			<ul>
+				<li>a = (5/8) * 1 + (2/8) * (1+b) + (1/8) * (1+c)</li>
+				<li>b = (3/8) * 1 + (2/8) * (1+a) + (2/8) * (1+b) + (1/8) * (1+c)</li>
+				<li>c = (4/8) * (1+a) + (4/8) * (1+b)</li>
+			</ul>
+			<p>Solve the equations using Matlab is a = 2.0571, b = 2.5714, c = 3.3143. And we can expand the method to get a solution for a (2n+1) * (2n+1) chess board.</p>
+
+			<p>Getting the exact solution is easier/faster/cheaper than writing a program to generate large numbers of sample paths. But if you want to add extra elements/restraints (e.g. a flew will not return to a visited square, a flew never choose the same direction twice in a row, or the board is not a square, or we have multiple fleas on the board, etc) to the model, it may be difficult to come up with a sleek solution like what we just did because we may not be able to apply the same techinque we used when a new constraint is added. But we are able to handle these changes when programming the simulation program. This actually gives an edge to the simulation model.</p>
+		</div><br><br>
+
+		<div class="w3-container w3-bottom w3-black w3-center">
+			<p> you can contact me via e-mail</p>
+		</div>
+	</body>
+</html>
