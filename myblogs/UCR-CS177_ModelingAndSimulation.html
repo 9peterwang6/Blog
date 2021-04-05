@@ -69,8 +69,65 @@
 			<p>Getting the exact solution is easier/faster/cheaper than writing a program to generate large numbers of sample paths. But if you want to add extra elements/restraints (e.g. a flew will not return to a visited square, a flew never choose the same direction twice in a row, or the board is not a square, or we have multiple fleas on the board, etc) to the model, it may be difficult to come up with a sleek solution like what we just did because we may not be able to apply the same techinque we used when a new constraint is added. But we are able to handle these changes when programming the simulation program. This actually gives an edge to the simulation model.</p>
 		</div><br><br>
 
+		<div class="w3-container w3-black">
+			<h3>Lecture 2: Constructing a Model</h3>
+			<p>Here are some steps we should take when constructing a simulation model:</p>
+			<ol>
+				<li>Formulate the problem and plan the study: figure out what you want to do with the simulation model you want to build (e.g. compare different alternatives, evaluate a strategy in a simulated environment);</li>
+				<li>Collect data, define a model: here we need to follow the KISS principle: Keep It Simple Stupid;</li>
+				<li>Test for validity: after coming up with a simulation model, we need to determine whether it captures the key features of the target system we want to simulate. We can do this by describing our model to domain experts, user, and other stake-holders;</li>
+				<li>Construct the program and "verify" its correct operation: code your simulation model, and check: if your random number generator works correctly, if each random variable follows its chosen probability distribution, if each model component does what it supposed to, and if the "infrastructure" code in your model works fine;</li>
+				<li>Make pilot runs and validate: make sure your simulation model works as expected. Test your model with boundary cases, test if your model can reproduce the behavior of an existing system with known parameter settings. If no, then go back to step 2 to collect more data snd refine the model. If yes, you can start your experiment;</li>
+				<li>Design the experiment: there are a few things to keep in mind. You need to decide on an acceptable level of confidence in your conclusions. And you need to think about how to reduce variance in your models.</li>
+				<li>Make production runs</li>
+				<li>Analyze the outputs: we need to remember that each output is determined by a bunch of randoms numbers, which means that the result is just an estimate. We must provide confidence intervals for each output value.</li>
+				<li>Document the process and implement the conclusions</li>
+			</ol>
+
+			<p>A simulation program should consist of the following components:</p>
+			<ul>
+				<li>System State: system state should include the following things:
+						<ul>
+							<li>Entities (customers, resources, etc): 
+								<ul>
+										<li>They have attributes such as location, arrival time, service demand. We can define an entity using struct or class in C++</li>
+										<li>They may belong to groupings of similar entities (e.g. waiting lines). We can use a vector or list in C++ to capture such groupings.</li>
+										<li>Different entity types may be related (e.g. server and customer). We may use pointers or a dictionary to store such mappings.</li>
+								</ul>
+							</li>
+							<li>Stochastic variables: they are used to represent tntity attributes, event times, etc</li>
+							<li>Strategies: they are used when comparing different versions of a model, represented by flag variables, separate functions</li>
+						</ul>
+				</li>
+				<li>Simulation clock</li>
+				<li>Events: an "atomic action" that updates the system states. Note that carrying out one event often triggers the creation of other events (e.g. each arrival event schedules the next arrival event, a start service event schedules the same customer's end serice event)</li>
+				<li>Event Scheduling: scheduling determines how the system states in the model evolves over time. There are two ways to schedule events: time-driven and event-driven scheduling. As their names entail, time-driven scheduling loops through time and look for events that happen during each step, whereas event-driven scheduling loops uses a priority queue to store the events and go through them one by one, advancing time accordingly. Note that Time-driven scheduling is only useful when the timing of the events are roughly evenly spaced because if we choose a step that is too small we increase the program runtime by increasing the total number of iterations. If we choose a step that is too large we may end up artificially creating simultaneous sequential events which may not make sense.</li>
+				<li>Program instrumentation: Data structures that record information about the simulation model. This is external to the actual model. Speaking of measurements, here are some of the items that you may be interested in tracking:
+					<ul>
+						<li>See if a specific events occur (dam bursts? hospital has no beds?)</li>
+						<li>Count occurrences</li>
+						<li>Find minimum or maximum valus</li>
+						<li>Properties of attribute values (e.g. what fraction of customers wait longer 10 minutes; what is the 90th percentile of customer wait)</li>
+					</ul>
+				</li>
+				<li>Report generator: you should have the same piece of code to produce "snap shots" during program execution, the code should be able to compute, tabulate and summarize the instrumentaion. The reason for "snap shots" is that we need to see the long-term trends of the output to find out if the system is actually behaving randomly.</li>
+			</ul>
+
+			<p>When doing measurements in a simulation model, there are two types of average we may need to compute: time average and population avarage. Time avarage is a weighted average with weight being the lifetime of a specific value. Whereas population average is a weighted average based on population. Here is a very interesting example about time-average and population-average:</p>
+			<ul>
+				<li>Suppose lightbulbs suffer from infant mortality problems.There is some kind of manufacturing defect that causes 75% of the lightbulbs to fail after 1000 hours; while the remaining 25% will last for 37000 hours before failure. The population average shows that the average lifetime for a lightbulb is 10000 hours. With population-average you may think that it is acceptable, but when you randomly pick a lightbulb, 75% percent you end up having a defected one. You actually need to buy at least eight lightbulbs at a time to guarantine a approx. 90% chance that you at least buy one normal lightbulb. How can I buy less lightbulbs but maintain the chance that I have a normal lightbulb?</li>
+				<li>To do so, we need to use an extra equipment: the in-store lightbulb display that is used to demonstrate different style of lightbulb's color temperature and brightness. You should be able to find such display in Home Depot. The purchasing algorithm works as follows: 1) Find a box containing a new bulb of the desired style; 2) Swap the new bulb with the coresponding display sample; 3) Purchase the display sample and take it home. How does this in-store display help? We can demonstrate it using time-average.</li>
+				<li>Suppose at time 0, a new sample is placed into the display. Once a sample is installed, its residual lifetime drops to zero at a slope of -1. Each burnt-out bulb is replaced immediately with a new sample so the lightbulb at the display is always on. Suppose I visit Home Depot at a random time, since a good bulb occupies 37 times as much time as a defective bulb, that means more likely the lightbulb at the display is a normal bulb. In fact, even though there are 3 times as much defective bulbs than normal bulbs, we still end up a probability of (0.25 * 37000) / (0.25 * 37000 + 0.75 * 1000) = 0.925. But because I come in at a random time, my display sample will be mid way through its life on average. The average residual lifetime for my display sample is: 0.075 * (1000/2) + 0.925 * (37000/2) = 17150 hours, much better than the expected average.</li>
+				<li>A major drawback of this algorithm is that it only works for purchasing one bulb. If you want another bulb, then you may try going to another store, or wait 1000+ hours and return to the same store to try again (and hope nobody else tried your Purchasing Algorithm during that time).</li>
+			</ul>
+
+			<p>As for population average, there is one type of data we would like to know: the average number of customers in the system at any time. To get this number, one may need to do a scan over the each unit of time to compute the average. But there is a much quicker way to find out this number, if we know the average arrival rate of customers to the system and the average time in system for customers. This is Little's Law: average number of customers in the system = average time in system for customers * the average arrival rate of customers to the system.</p>
+
+			<p>A concrete example is <a href="UCR-CS177_GasStationSimulationModel.cpp" target="_blank">the gas station example</a>.</p>
+		</div><br><br>
+
 		<div class="w3-container w3-bottom w3-black w3-center">
-			<p> you can contact me via e-mail</p>
+			<p>you can contact me via e-mail</p>
 		</div>
 	</body>
 </html>
