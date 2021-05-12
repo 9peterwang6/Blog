@@ -123,10 +123,68 @@
 
 			<p>As for population average, there is one type of data we would like to know: the average number of customers in the system at any time. To get this number, one may need to do a scan over the each unit of time to compute the average. But there is a much quicker way to find out this number, if we know the average arrival rate of customers to the system and the average time in system for customers. This is Little's Law: average number of customers in the system = average time in system for customers * the average arrival rate of customers to the system.</p>
 
-			<p>A concrete example is <a href="UCR-CS177_GasStationSimulationModel.cpp" target="_blank">the gas station example</a>.</p>
+			<p>A concrete example is <a href="../supplements/UCR-CS177_GasStationSimulationModel.cpp" target="_blank">the gas station example</a>.</p>
 		</div><br><br>
 
-		<div class="w3-container w3-bottom w3-black w3-center">
+		<div class="w3-container w3-black">
+			<h3>Lecture 3, 4, 5: CSIM Programming</h3>
+			<p>This course teaches you how to use a programming package called CSIM from <a href="https://www.mesquite.com/" target="_blank">Mesquite Software</a>.</p>
+
+			<p>I think it is better to use examples to learn the components of CSIM. Here are some example programs of CSIM:</p>
+			<ul>
+				<li>A compile script provided by the course instructor Professor Mart Molle. Replace the "$*" with your program: /usr/bin/g++ -DCPP -DGPP -I/usr/csshare/pkgs/csim_cpp-19.0/lib -m32 $* /usr/csshare/pkgs/csim_cpp-19.0/lib/csim.cpp.a -lm </li>
+				<li><a href="../supplements/UCR-CS177_CSIMHelloWorld.cpp" target="_blank">A "Hello World" program</a></li>
+				<li><a href="../supplements/UCR-CS177_GasStationCSIM.cpp" target="_blank">The gas station example rewritten in CSIM</a></li>
+				<li><a href="../supplements/UCR0CS177_AirportShuttleSimV1.cpp" target="_blank">An airport shuttle system simulation (one Bus, one terminal and one carlot)</a></li>
+				<li><a href="../supplements/UCR0CS177_AirportShuttleSimV2.cpp" target="_blank">Airport shuttle system simulation version 2 (extends the previous model with  multiple terminals)</a></li>
+				<li><a href="../supplements/UCR0CS177_AirportShuttleSimV3.cpp" target="_blank">Airport shuttle system simulation version 3 (extends the version 2 with multiple buses and a sensible strategy to dispatch buses so as to avoid the scenario that one passenger wakes up the entire crew with more than one buses resting)</a></li>
+			</ul>
+		</div><br><br>
+
+		<div class="w3-container w3-black">
+			<h3>Lecture 6: Review of Probability and Statistics</h3>
+			<p>Probability: a numeric value between 0 and 1 representing how likely an event is going to happen. Having 0 probability means the result is impossible whereas having 1 probability means the result is inevitable. We can determine the probability of an event by two methods:</p>
+			<ul>
+				<li>Experimental method: essentially a Monte-Carlo method which conduct many repitions of the experiment and report the proportion that match the chosen result.</li>
+				<li>Non-Experimental method: list all possible outcomes for the experiment, and assgin each outcome a (most likely equal) probability. Then we define the event to be a subset of those outcomes and sum probabilities of the outcomes included in the defined event.</li>
+			</ul>
+			<p>For an event, we can assign each outcome of this event a value to reflect the result triggered by the event outcome. We use a <b>random variable (r.v.)</b> to store such values. An r.v. can be of the following two types:</p>
+			<ul>
+				<li>Discrete r.v.: Can take only a finite number of distinct values. We use a probability mass function (pmf) to denote the probability of the appearance of each possible value. Note that each function value is greater than or equal to 0 and less than or equal to 1. The sum of every indivial value of this pmf is exactly 1.</li>
+				<li>Continuous r.v.: Can take any real value within some range. In this case, there is an infinite number of possible values so the probability of the apperance of each possible value is 0. But the probability of a value falling in a certain range may not be 0 so we actually focus on finding out this type of probability. This type of probability can be visualized if we can plot the entire valid range of values. On the chart, the probability of a certain range of values is actually how much the area determined by this range of numbers and the axis overlaps with the area determined by the valid range of numbers and the axis. We use integration to compute these areas. So the probability is denoted via the integral of the random variable's probability density function (pdf) f(x). If x is outside of the event's valid range, then f(x) = 0, otherwise f(x) is greater than or equal to 0 (f(x) is NOT A PROBABILITY and there is no hard upper limit for f(x)). The intergral of f(x)dx over its entire valid range is 1.</li>
+			</ul>
+			<p>Since we focus on different things when dealing with each type of random variables. Mathematicians came up with a solution to unify the focus by introducing a cumulative probability distribution function (PDF) F(x). F(x) = P(X less than or equal to x) so now everything is about how much the area determined by (X less than or equal to x) and the axis overlaps with the entire valid range of values and the axis. By convention, pdf is f() and PDF is F(); f_X() means pdf for r.v. X and F_X means PDF for r.v. X.</p>
+			<p>Most systems we care about contain more than one random variables, so we need to consider a joint distribution of all random variables: F_{X1, X2, ..., Xn}(x1, x2, ..., xn) = P(X1 less than or equal to x1, X2 less than or equal to x2, ..., Xn less than or equal to xn). However, we know very little about the properties of the joint distribution in general. And we actually focus more on the marginal distribution of one of the variables Xj by using repeated integration from negative infinity and positive infinity by every variable except Xj to find F_Xj(xj).</p>
+			<p>There is an easier way to find the marginal probability or join probability. If the random variables X1, X2, ..., Xn are mutually independent, then the joint PDF factors into the product of their individual marginal PDFs. One thing to point out is that Xi and Xj do not have causal relationship does not mean that Xi and Xj are independent.</p>
+			<p>For a random variable X, we can compute the expected value/mean E[X] (or mu_X) and the variance of the variable Var(X):</p>
+			<ul>
+				<li>E[X] = x1*f1 + x2*f2 + ... + xn*fn if X is discrete.</li>
+				<li>E[X] = integral of x*f(x)dx between a and b if X is continuous ranging from a to b.</li>
+				<li>E[g(X)] = g(x1)*f1 + g(x2)*f2 + ... + g(xn)*fn if X is discrete.</li>
+				<li>E[g(X)] = integral of g(x)f(x)dx between a and b if X is continuous ranging from a to b.</li>
+				<li>E[a*g(X) + b*h(X)] = a * E(g(X)] + b * E([h(X)]</li>
+				<li>Var(X) = E[(X - E[X])**2] = E[X**2] - E[X]**2 if we expand the former formula.</li>
+				<li>Standard deviation (denoted as sigma) of r.v. is the square root of its variance. The reason to introduce the standard deviation is to make it comparable with the r.v.</li>
+				<li>If we have random variables Xi and Xj, we can compute their convariance Cij = E[(Xi - E[Xi]) * (Xj - E[Xj])]. If Cij > 0 then Xi and Xj are positively correlated; if Cij = 0 then Xi and Xj are uncorrelated; if Cij < 0 then Xj and Xj are negatively correlated.</li>
+				<li>Cij is not directly comparable with Xi or Xj. To make things comparable, we introduce Correlation cij = Cij / (sigma_i * sigma_j) = Cij / (E[Xi] * E[Xj]). The value is never outside the interval -1(opposite) and +1 (identical).</li>
+			</ul>
+			<p>You may wonder how probability theory helps in sumulation models. When a simulation model runs, we can set up checkpoints at different time to record the state of our model. If we repeat the experiment multiple times we get multiple observations and study the states. This process is called a stochastic process. Running a stochastic process should end up having a collection of r.v.s, X_t1, X_t2, ... with:</p>
+			<ul>
+				<li>A common sample space: each r.v. must take its values from the same set of choices.</li>
+				<li>Indexed by time.</li>
+			</ul>
+			<p>If X_ti and X_tj are mutually independent, then the process is memoryless (Monte-Carlo Method, independent and identically distributed (i.i.d.) r.v.s). If otherwise then the process has memory, which means X_ti may influence X_tj if ti is less than tj (Markov Chain). For the latter, we may end up having an equilibrium state. Please note that X_t1, X_t2, ... may have different distribution that can still produce a common sample space. If  for each r.v.s in a random the process the expected value is the same regardless of their distribution, then the process is stationary. If the covariance between r.v.s are the same, then the process is covariance stationary.</p>
+		</div><br><br>
+
+		<div class="w3-container w3-black">
+			<h3>Lecture 7: Confidence Intervals</h3>
+			<p>In the previous lecture we talked about stochastic processes. Let's consider the a stochastic process with n i.i.d.r.v.s X1, X2, ..., Xn. The distribution of Xi has a finite theoratic mean mu and a finite theoratic variace sigma**2. We are not sure about the value of neither mu nor sigma, and we would like to run this stochastic process to find estimates of mu and sigma.</p>
+			<p>After running the process, we obtain an observation for each r.v. x1, x2, ..., xn. To find the estimate of mu, we simply compute the arithmetic average of these n observations. Denote this value as avg(Xi, n) = sum(xi, n)/n where xi is an observation value of Xi. To find the estimate of sigma**2, instead of using avg((Xi - avg(Xi, n))**2, n) = sum((xi - sum(xi, n)/n)**2, n)/n, we use sum((xi - sum(xi, n)/n)**2, n)/(n - 1) to estimate the sigma**2. Doing this we will have E[sum((xi - sum(xi, n)/n)**2, n)/(n - 1)] = sum((E[Xi] - sum(E[Xi], n)/n)**2, n)/(n - 1) = sigma**2, making it an unbiased estimate. The course instructor has his perspective. When n = 1, sigma**2 = 0. This is correct because it tells you that variability is impossible with only one outcome. When n = 1, your variance estimate gives you a zero divide exception, which tells you that you cannot observe variability with one sample.</p>
+			<p>One thing I would like to point out is that repeat a stochastic process with one random variable X1 n times is equivalent to running a stochastic process n i.i.d.r.v.s X1, X2, ..., Xn. The latter is formally used in textbooks but it is essentially the same thing as the former in my opinion.</p>
+			<p>One way or another, when n approaches positive infinity, your sample mean approaches mu. Formally, that means P(limit(n->+inifinity, avg(X, n))) = 1 for any distribution X with n i.i.d. samples (be it an observation of X1, X2, ..., Xn or n observations of X1). This is the Strong Law of Large Numbers.</p>
+		</div><br><br>
+
+		<div class="w3-container w3-black w3-center">
 			<p>you can contact me via e-mail</p>
 		</div>
 	</body>
