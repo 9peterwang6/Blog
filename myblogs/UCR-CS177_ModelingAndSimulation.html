@@ -178,7 +178,7 @@
 
 		<div class="w3-container w3-black">
 			<h3>Lecture 7: Confidence Intervals</h3>
-			<p>In the previous lecture we talked about stochastic processes. Let's consider the a stochastic process with n i.i.d.r.v.s X1, X2, ..., Xn. The distribution of Xi has a finite theoratic mean mu and a finite theoratic variace sigma**2. We are not sure about the value of neither mu nor sigma, and we would like to run this stochastic process to find estimates of mu and sigma.</p>
+			<p>In the previous lecture we talked about stochastic processes. Let's consider the a stochastic process with n i.i.d.r.v.s X1, X2, ..., Xn. The distribution of Xi has a finite theoretic mean mu and a finite theoretic variace sigma**2. We are not sure about the value of neither mu nor sigma, and we would like to run this stochastic process to find estimates of mu and sigma.</p>
 			<p>After running the process, we obtain an observation for each r.v. x1, x2, ..., xn. To find the estimate of mu, we simply compute the arithmetic average of these n observations. Denote this value as avg(Xi, n) = sum(xi, n)/n where xi is an observation value of Xi. To find the estimate of sigma**2, instead of using avg((Xi - avg(Xi, n))**2, n) = sum((xi - sum(xi, n)/n)**2, n)/n, we use sum((xi - sum(xi, n)/n)**2, n)/(n - 1) to estimate the sigma**2. Doing this we will have E[sum((xi - sum(xi, n)/n)**2, n)/(n - 1)] = sum((E[Xi] - sum(E[Xi], n)/n)**2, n)/(n - 1) = sigma**2, making it an unbiased estimate. The course instructor has his perspective. When n = 1, sigma**2 = 0. This is correct because it tells you that variability is impossible with only one outcome. When n = 1, your variance estimate gives you a zero divide exception, which tells you that you cannot observe variability with one sample.</p>
 			<p>One thing I would like to point out is that repeat a stochastic process with one random variable X1 n times is equivalent to running a stochastic process n i.i.d.r.v.s X1, X2, ..., Xn. The latter is formally used in textbooks but it is essentially the same thing as the former in my opinion.</p>
 			<p>One way or another, when n approaches positive infinity, your sample mean approaches mu. Formally, that means P(limit(n->+inifinity, avg(X, n))) = 1 for X whose values are from any distribution with n i.i.d. samples (be it an observation of X1, X2, ..., Xn or n observations of X1). This is the Strong Law of Large Numbers.</p>
@@ -206,6 +206,61 @@
 				<li>Compute sample_mean_{m+1} = sample_mean_m + delta/(m+1).</li>
 				<li>Compute distance_{m+1} = distance_m + (x+{m+1} - sample_mean_{m+1}) * delta.</li>
 				<li>When there is no sample left, output sample_mean_m and distance_m/(m-1).</li>
+			</ol>
+		</div><br><br>
+
+		<div class="w3-container w3-black">
+			<h3>Lecture 8 & 9: Choosing Input Distributions And Goodness of Fit</h3>
+			<p>A stochastic simulation program must have some variables whose values are "randomly generated". How to choose distributions for these variables?</p>
+			<ol>
+				<li>Using a priori knowledge (e.g. symmetric events).</li>
+				<li>Try a normal distribution if the value is the sum (or average) of large numbers of independent elements. An example: raw scores (sum of marks of each question) in a class with large numbers of enrolled students.</li>
+				<li>For inter-arrival times, use Poisson distribution.</li>
+				<li>If you only know about the minimum and maximum values of the variable. Use a uniform distribution. This should be the last resort.</li>
+				<li>If you can collect empirical data, and ou cannot find one distribution that is a good fit, you may need to construct an empirical distribution. But normally, you can plot the distribution of the data you collect and look for theorectical distributions that best match the properties of the dataset (be it observed or prior knowledge). Then use the empirical data to fit parameters for the chosen distribution via Maximum Likelihood Estimation (MLE). The last step is to validate if the distribution fits well with the empirical data via a goodness-of-fit test.</li>
+			</ol>
+			<p>MLE process:</p>
+			<ol>
+				<li>Obtain data.</li>
+				<li>Generate a set of possible parameter values.</li>
+				<li>Construct the likelihood function L: L(theta;x1, ..., xn) = f(x1, x2, ..., xn | theta) = f(x1|theta) * f(x2|theta) * ... * f(xn|theta), f is the pdf of the distribution.</li>
+				<li>The theta that maximizes L is the MLE of the distribution parameter.</li>
+			</ol>
+			<p>To validate if the consturcted distribution fits well with the empirical data, we mainly use the following two methods: Quantile-Quantile Plots (aka Q-Q Plots) and Chi-squared Test.</p>
+			<p>Steps to draw Q-Q Plots:</p>
+			<ol>
+				<li>Determine a way to compute quantile based on the size of the empirical dataset.</li>
+				<li>Compute the quantile for each value of the empirical dataset.</li>
+				<li>Use your constructed theoretical distribution and generate data points from within the same range of the empirical data.</li>
+				<li>Compute the quantile for each value of the generated dataset.</li>
+				<li>Plot the Quantile-Quantile Plot, each point (x_i, y_i) is the data point from the two datasets having the same quantile, x_i is from the empirical dataset and y_i is from the theorectical distribution.</li>
+			</ol>
+			<p>To compute the quantile, one can use the following ways:</p>
+			<ul>
+				<li>Method 1: Sort the data ascendingly and index them. The index value / size is the quantile value. Use this method when the size of the empirical dataset is small. One can generate from the theorectical distribution a dataset of the same size and sort it ascendingly so that having the same index value means having the same quantile value.</li>
+				<li>Method 2: Compute percentile because we know that a% quantile = a-th percentile. Use this method when the size of the empirical dataset is large.</li>
+			</ul>
+			<p>If the two distributions are identical, then we will get a straight line that passes through the origin and has a slope of 1; If the rwo distributions only differ by a location parameter (b as in a*x + b), then we get a straight line with slope 1 that does not pass through the origin; If the two distributions differ only by a scale parameter (a as in a*x +b), then we get a straight line whose slope is not 1; Otherwise we end up not having a straight line.</p>
+			<p>Steps to perform a Chi-squared Test:</p>
+			<ol>
+				<li>Start with your set of raw observations X_1, ..., X_n.</li>
+				<li>Choose (k - 1) movable cut points to partition the x-axis into k bins: [-infinity, a_1), [a_1, a_2), ..., [a_{k-1}, +infinity).</li>
+				<li>Count the number of samples that fall within each bin to obtain [N_1, N_2, ..., N_k], where sum([N_1, N_2, ..., N_k]) = n.</li>
+				<li>Calculate the probabilities of hitting each bin for your theorectical distribution as p_j = F_theta(a_j) - F_theta(a_{j-1}). F is the CDF of your theorectical distribution. Assume a_0 = -infinity and a_k = +infinity.</li>
+				<li>Find the computed Chi-squared statistic for your dataset: chi-squared_{computed} = [(N_1 - n * p_1) ** 2 / (n * p_1)] + ... + [(N_k - n * p_k) ** 2 / (n * p_k)].</li>
+				<li>Find chi-squared_{k-1, 1-alpha} from the tabulated distribution, where: 1) (k-1) is a rwo index in the table, representing the degrees of freedom. 2) (1-alpha) is a column index representing Type One Error probabilities.</li>
+				<li>Reject a match with confidence level alpha if chi-squared_{computed} > chi-squared_{k-1, 1-alpha}.</li>
+			</ol>
+		</div><br><br>
+
+		<div class="w3-container w3-black">
+			<p>Steps to do a simulation:</p>
+			<ol>
+				<li>Come up with something on which you want to run a simulation.</li>
+				<li>Construct a simulation model and validate it.</li>
+				<li>Choose a distribution for each random variable in the simulation model.</li>
+				<li>Run the model a few times, compute the confidence interval for the model output.</li>
+				<li>Analyze the model output.</li>
 			</ol>
 		</div><br><br>
 
