@@ -1,0 +1,74 @@
+Regular Expression Tutorial Notes
+
+-- Crash course from regextutorials.com
+
+
+* /abc/g will match words that contain "abc".
+
+* \w represents any latin letter or digit, \d represents any decimal digit. /\w\d/g will match a \w immediately followed by \d.
+
+* Add a + after a symbol will match one ore more repetitions of thay symbol. /\d\d+/g will match numbers of two digits or more. Add a * after a symbol will match zero or more ocurrences of the symbol. /\d/g matches each digit separately whereas /\d+/g matches numbers as a whole. /\d*/g does not match anything.
+
+* To match any of some given set of characters, use [] (e.g. /[abc]/g will match a, b or c). To specify an interval, use - (e.g. /[a-c]/g is equivalent to /[abc]/g). Use /^[abc]/g to match any character except a, b, or c.
+
+* Use /\./g, /\*/g, /\+/g, etc to match special symbols like ., *, +, etc.
+
+* /[a-f]|\d/g will match any letter from a to f or digit.
+
+* . will match any single symbol. /.*/g may match an empty string (in Javascript because it always tries to match as few sysmbols as possible) or the whole string. /.+/g will match the entire string. /s?he/g will match both "he" or "she", meaning "s" is optional.
+
+* ^ and $ stand for start and end of line. \b means a word boundary. /^\w+/g will match the first word in each line and /\w+$/g will match the last word of each line. /\b\w/g will match the first letter of each word, and /\w\b/g will match the last letter of each word. \s means a space symbol.
+
+* /\w{3,5}/g will match words of 3 to 5 letters. /\w{3}/g will match eords of exactly 3 letters. /\w{,3}/g will match words of no more than 3 letters (or actually empty string in Javascript), /\w{3,}/g will match words of no less than 3 letters.
+
+* Group the matches by using () to wrap around the expressions. Reference those group by using \1, \2, etc. For example, /(\w)\1/g matches any letter repeated two times and /(\d)\1/g matches two consecutive equal digits.
+
+* To replace characters using groups, one should reference the groups using $1, $2, etc.
+
+* (?=) is called a lookahead. /abc(?=d)/g will match abc only if it is followed by d. Here d is not included in the match. /abc(?!d)/g will match abc NOT followed by d. /\w+(?=\.)/g will match the last word in a sentence. /\w+(?!\.)\b/g will match all words that are not in the last position of a sentence ending with dot.
+
+* The g followed at the end of your regular expression is called modifier. It means global matching. Here are the other modifiers: i <=> case insensitive, m <=> multiline matching.
+
+
+Regular Expression Exercises
+1. Matching floating point numbers: /\d\.\d+/g
+
+2. Matching years before 1990: /19[1-8][0-9]/g
+
+3. Matching 24-bit hexadecimal colors: /\#([0-9]|[A-F]){6}/g
+
+4. Matching 12 and 24 bit grayscale colors whose red, green and blue components are equal: \#(\w\w)\1\1|#(\w)\2\2 (The solution provided on the webpage is better: #([0-9a-fA-F]{1,2})\1\1)
+
+5. Matching lines with more than 30 characters: /.{30,}/g
+
+6. Remove repeating words: /(\b\w+\'\w+\b|\b\w+\b|\b\w+\-\w+\b).\1/gm replace with $1. (The solution provided on the webpage: \b(.+)\b\s+\1\b replace with $1)
+
+7. Match simple HTML tags: \<.\w*\>|\<.\w*\s\w*\>
+
+8. Cut number to two digits after floating point: /(\d\.\d\d)\d+/gm replace with $1
+
+9. Digit commas formatting: /(\d(?=\d{9})|\d{3}(?=\d{3}))/gm replace with $1, . (The solution provided on the webpage: /(\d)(?=(\d{3})+\b)/gm replace with $1,)
+
+10. Match lowercase function declaration: /function\s[a-z]\w+\(\w*\)/g
+
+11. Format yyyy-mm-dd dates to dd.mm.yyyy: /(\d\d\d\d)\-(\d\d)\-(\d\d)/gm replace with $3.$2.$1
+
+12. Match valid time in 24h format: /[0-1][0-9]:[0-5][0-9]|2[0-3]:[0-5][0-9]/g
+
+13. Match valid time in 12-hour clock format: /\b(0?[0-9]|10|11|12):[0-5][0-9]\s[AP]M/given
+
+14. Pascal style to C-style parameters: /(\w+\<\w+\>\s\w+|\w+\s\w+)\;/gm replace with $1,
+
+15. Change variable initialization from "var a = new A(...);" to "A a(...);": /var\s+(\w+)\s\=\snew\s+(\w+||\w+\<\w+\>)(\(.*\))/gm replace with $2 $1$3
+
+16. March IPv6 addresses: /\b[0-9a-f]+\:+|[0-9a-f]{1,4}$/g (The solution provided by the webpage: /((\d|[a-f]){0,4}:){2,7}[0-9a-f]{1,4}/g).
+
+17. Validate 32 or 24 bit hexadecimal colors: \#[0-9a-f]{6}\b|\#[0-9a-f]{8}\b
+
+18. Replace addition operator a + b with Add(a, b): /(\w+\(\w+\)|\w+.\w+\*\w+.\w|\w+)\s\+\s(\w+\(\w+\)|\w+.\w+\*\w+.\w|\w+)/gm replace with Add($1, $2) (The solution provided by the website:  (\w[a-z0-9()*.]+)\s?\+\s?(\w[a-z0-9()*.]+) replace with Add($1, $2))
+
+19. Match the query string from a URL: /\?\w+\=.*/g
+
+20. Extract http host from the URL: http\:\/\/[\w\.]+
+
+21. Matching lines that does not contain certain strings (e.g. chocolate): /^.(?!chocolate)*$/g. My answer was /.*Cake.(?!.*chocolate).*$/g but the answer provided on the webpage was better than mine imo so I also kept a note of it.
