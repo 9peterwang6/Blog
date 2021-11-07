@@ -1,0 +1,229 @@
+美帝报税指南
+原文转载自: https://apollozhao.wordpress.com/2013/03/14/zz%e6%88%91%e4%b9%9f%e6%9d%a5%e5%86%99%e4%b8%80%e7%af%87%e6%8a%a5%e7%a8%8e%e6%8c%87%e5%8d%97/
+
+最近放春假。春假苦短，可我还是花了一整天的时间来报税。在美国，报税实在是个折腾人的事情，也难怪很多人都雇人来报税。作为一个学生，还是自己动手吧。这里就讲讲在美国怎么报税。
+
+1. 为什么要报税？
+
+在美国生活，税是一个充斥各处的字眼。吃饭、购物、住房，几乎生活中你想像的到地方都要交税。与国内把税包含在价格中不同的是，这边的税是单独列出来的。美国人强调税收的一个很重要原因就是让纳税人意识到自己付了很多税，这样才会对政府财政开支进行严格的监督。
+
+美 国人强调税收的另一个重要原因就是，税收是政府运作的最主要的财政基础。理论上讲，作为在美国社会生活的一员，享受了政府提供的公共设施的服务，每个人都 有义务缴纳一定数目的税款，以维持整个政府的运作。因此，逃税漏税在美国是一项非常严重的违法行为。对于个人来说，逃税漏税最常发生在对个人征收的所得税 上（income tax）。所谓个人所得，一般包含了工资、投资收入等其他收入。对于大部分留学生来说，主要是工资。为了尽可能避免逃税漏税，雇主们（例如：学校或者实习 公司）通常会在发放工资前先估计对你应缴纳的税款进行估计，扣除这部分估计税款并上缴至美国的税务部门，然后再将剩余部分发放给雇员。注意，这里只是暂 扣，并不是缴税。由于暂扣的税款是估计的，可能跟最终的实际情况有所偏差，因此到了每个财政年度结算的时候（通常都是4月15号左右），每个人都要根据自 己在过去的一年内的实际情况计算自己实际应该缴纳的税额。如果实际数额少于被暂扣的数额（overpaid），就可以申请退税（refund/tax return），否则就要补足差额。
+
+这整个过程都是通过填写各种个样的税收报表完成的，所以这个过程通常叫做报税。
+
+2. 报什么税？怎么报？
+
+一 般来说，我们要报的税分两种：联邦税和州税。这些税分别是由不同的部门扣除的。几乎每个人都要申报联邦税。而州税则是根据你收入来源来决定向哪里报税。以 我个人为例，我去年在UCLA当TA，暑期在Virginia的一家公司做实习，那么我就需要向3个地方报税，分别是：联邦的财政部 （Department of the Treasury）、California的税务部门（Franchise Tax Board）、以及Virginia的税务部门（Virginia Department of Taxation）。下面来介绍如何报税。
+
+2.1 联邦税（Federal IncomeTax）
+
+联邦税所需要的表格和填表指南都可以在IRS（Internal Revenue Service）的网站（http://www.irs.gov/）上下载。IRS上面提供了一些在线的免费填税表系统（e-file）。相比直接填写税表，使用这些系统更加简单易用。有些学校，例如UCLA，有自己专门的填税表系统Glacier。稍后我们会谈一下如何使用这些系统。
+
+首 先来看一下报联邦税所需要的报表：1）Form 1042-S，2）From W-2，3）Form 1099-INT，4）Form 1040 NR /1040 NR-EZ，5）Form 8843，6）Non-Service Scholarship or Fellowship GRANT STATEMENT。
+
+2.1.1 Form 1042-S：Foreign Person’s U.S. Source Income
+
+如果你有收入属于下面五种之一，你就需要Form 1042-S：
+
+    Wage payments made to employees who have claimed tax treaty benefits
+    Tax reportable Fellowship/Scholarship income
+    Service payments made to independent contractors for work performed in the U.S.
+    Royalty payments issued to individuals or entities.
+    Non-employee Prize or Award payments
+
+对于留学生来说，常见的项目是第二种和第五种（注意中国学生的前5000收入免税不是在这里报的）。Form 1042-S是由学校填的（对UCLA的学生来说，3月15号之后就可以从Glacier下载已经由学校填好的1042-S）。
+
+由 于中国政府与美国政府之间有税务协定Article 20 (B)，中国留学生的Fellowship/Scholarship/Prize/Award都是免税的，所以如果你发现自己的Form 1042-S上 面有被Withhold的税（Box 3），那这部分税都是可以退回来的。详见Pub 901。
+
+另一项中美政府之间的税务协定Article 20 (C)，允许中国留学生在美国每年的前5000美元的收入免税。这部分我们留到Form 1040NR/1040NR-EZ的时候再讲。
+
+2.1.2 Form W-2：Wage and Tax Statement
+
+如果你在美国有工资收入（例如，在学校做RA/TA，在公司实习等等），那你就会收到由雇主寄给你的Form W-2（这张表是雇主填的）。 以我个人为例，我在UCLA担任TA，暑假在公司V实习，那么我就应该收到两张Form W-2，分别来自UCLA和公司V。每张Form W-2上都记载了你在对应雇主那里领取了多少工资（Box 1），缴了多少联邦税（Box 2）和州税（Box 17）。这些税就是你被暂扣的税款，接下来要做的就是计算这些暂扣的税款是多扣了还是少扣了。Form W-2上还有一些其他的表项，例如社保税（Box 4）、医保税（Box 6），对于留学生来说，这些税是不用缴的，但是这部分税是不能通过报税退回来的，而是要向公司索要的。
+
+2.1.3 Form 1099-INT：Interest Income
+
+在美国，利息也是要缴税的，所以你的银行也会给你寄一张Form 1099-INT（银行填写）。这张表上的内容相对简单，你只需要注意看一下你的利息（Box 1）和暂扣的联邦税（Box 4）。
+
+2.1.4 Form 1040NR/1040NR-EZ：U.S. Income Tax Return for CertainNonresident Aliens With No Dependents
+
+这张表是报税的重点，也是第一张需要你自己填写的表格。如果你的工资收入不超过100,000，填写Form 1040NR-EZ即可，否则填写Form 1040NR。
+
+第一部分是填写你的基本信息，包括：姓名、SSN/ITIN、地址。Foreign开头的那些项目可以不用填。
+
+第二部分有一点点复杂，如下：
+
+    Line 1/2：申报身份。单身或已婚
+    Line 3：工资收入。把自己所有的W-2上Box 1的数字加在一起，根据之前提到的中美税务协定Article 20 (C)，如果总额超过5000美元，填写超过的数目。如果少于5000美元，则填写0。例如你有两张W-2表格，分别记录了你有4000美元和16000 美元的收入，那么你就应当填写4000+16000-5000=15000。
+    Line 4：州税和本地退税。如果你本年度就收到了本年的州税和本地税退款（如果你没有收到Form 1099-G，跳过这行），这部分退税要算作收入的，因此这里要填写。
+    Line 5：奖学金。这里是要求填写你收到的奖学金数目，虽然要求填写1042-S上的数目，但是由于之前提到的中美税务协定Article 20 (B)，中国留学生的奖学金是不收税的，所以这部分填0。
+    Line 6：免税金额。这里将你1042-S的Box 2的数目加上5000后填写。例如1042-S上是14000，那么这里就应当填14000+5000=19000。
+    Line 7：对Line 3、4、5求和。
+    Line 8：奖学金种的免税部分。由于我们的奖学金已经全部算在Line 6所列的免税部分中，且Line5我们填了0，这里直接填0。
+    Line 9：助学贷款利息减免。如果你没有申请贷款，填0。
+    Line 10：从Line 7中扣除Line8和Line9的数额，剩下的部分就是你调整后的毛收入（Adjusted Gross Income，AGI）。
+    Line 11：单项减免。填写你被暂扣的州税和本地税总和，即所有W-2表上的Box 17的总和。
+    Line 12：从Line10中扣除Line11（单项减免）的部分。
+    Line 13：基本免税。2011年填3800。
+    Line 14：可征税收入。从Line12中减去Line13（基本免税）后就是你要被征税的部分了。这部分的数额如果小于0，就填0。
+    Line 15：收入税额。根据你Line14中的数额，去1040NREZ的Instruction的最后查对应的税额。例如，如果Line14中是11907，那么对应的一栏是11900－11950，税额是1,364。
+    Line 16：社保税和医保税。中国留学生不用缴，这里跳过。
+    Line 17：总税额。即Line15和Line16的总和。
+    Line 18a：收入的暂扣联邦税。将你W-2上的Box 2和1099-INT上的Box4进行求和。
+    Line 18b：奖学金的暂扣联邦税。如果你的1042-S上面的Box 3上有数额的话，将该数额填在这里，表示你的奖学金被暂扣联邦税了（如果这里不填的话，就没办法要回这部分税了）。如果你的1042-S上面的Box 3上没有数额或者为0的话，这里就填0。
+    Line 19：前一年的退税用于今年支付。如果你前一年的报税选择不直接退税，而是申请将其用于支付今年的税额，填写你去年申请的额度。一般情况，没有人这么干，所以一般都是0。
+    Line 20：提前支付税额。如果你没有1040-C，跳过。有些人会用1040-C预先交付税额。
+    Line 21：支付税总额。将Line18a到Line20加和，得到你总共为支付了多少税额。
+    Line 22：将你支付的税总额（Line21）减去你应该支付的税额（Line17），就可以知道你是否可以退税，还是需要补税。如果结果大于0，就表示你可以退税，将结果填到Line22。
+    Line 23：退税方式。
+    Line 24：是否用于缴下一年税款。这就跟之前Line 20的内容有关了。一般大家都是直接要回来吧。
+    Line 25/26：补税。如果将你支付的税总额（Line21）减去你应该支付的税额（Line17），发现结果小于0，那么表示你所缴税额不足，需要补税。但愿大家不要有这个情况出现。。。
+
+第三部分，签名，日期，职业（Student）
+
+第四部分，Other Information （Schedule OI）。A-I项都比较简单。J项就是要大家填之前跟免税协定相关的信息。
+
+    J1(a)：国籍
+    J1(b)：税务协定(Article 20 (B)/(C))
+    J1(c)：前一年在美国待了几个月
+    J1(d)：数额
+    J1(e)：总额
+    J2：Yes
+
+一般来说，Article 20 (C)是必填的（前5000美元收入）。Article (B)要根据你Form 1042-S的情况来定了。所以大家一般填1-2栏就差不多了。
+
+2.1.5 Form 8843：Statement for Exempt Individuals and IndividualsWith a Medical Condition
+
+这张表主要是为了证明我们是符合上面免税条件的，也是要自己填的。作为留学生来说，需要填写最开始的姓名、SSN/ITIN、Part I、Part III。最后签名、写日期就好了。
+
+2.1.6 Non-Service Scholarship or Fellowship GRANT STATEMENT
+
+如果你Form 1042-S里有奖学金的话，你还需要填写这个Statement。
+
+    Nontaxable (Section 117)：0.00
+    Tax Treaty Exempt：奖学金金额
+    Taxable：0.00
+    TOTAL：总额
+
+之后填写奖学金是谁给的。以及多少用于付学费、书本费之类的。中国学生的话，写0.00就可以了。最后写名字、SSN、签名、写日期。
+
+到此这一步基本上大部分联邦税该填的表格都填完了。下一步就是把该邮寄的文件整理到一起，顺序是：
+
+    Form 1042-S的Copy C
+    所有Form W-2的Copy B
+    所有有关的Form 1099
+    Form 1040 NR/NREZ
+    Form 8843
+    Non-Service Scholarship or Fellowship GRANT STATEMENT
+
+最后寄到
+Department of the Treasury
+Internal Revenue Service Center
+Austin, TX 73301-0215
+联邦报税就搞定了。
+
+2.1.7 在线申报系统
+
+如 果你在手动填写报表时，时常为表格上有些栏的意义不太确定而感到苦恼的话，可以考虑使用在线申报系统，这些系统以提问题的方式让你填写自己的相关信息，自 动帮你计算你应缴纳的联邦税并填写表格。不过这些系统有好有坏，不过一般自己所在学校或者公司所提供的在线系统是最合适自己使用的。
+
+2.2 加州州税（California State Income Tax）
+
+相比起联邦税，加州州税填的表要少得多。如果你收入没有超过100,000美元的话，只需要填写540NR-EZ，否则填写540NR。 另外，找出Form W-2中Box 15一栏是CA的那部分。之前填的Form 1040NR/NR-EZ也准备在旁边。
+
+2.2.1 540NR-EZ：California Nonresident or Part-YearResident Income Tax Return
+
+第一部分，基本信息。
+
+第二部分，明细：
+
+    Line 1-5：申报身份。
+    Residency：注意！这张表是Nonresident和Part-Year Resident共同使用的。所以这里对于Nonresident来说，这里就不要选了。
+    Line 6：是否有人是你的dependent。一般没有。
+    Line 7-13：就照表上的说明填就好了。
+    Line 14：0.00
+    Line 17-50：就照表上的说明填就好了。
+    Line 61：租房免税。注意！这部分是对Resident有用的。Noresident不要填了。
+    Line 74-104：就照表上的说明填就好了。
+    Line 120：看看自己有没有符合的条件，一般没有。
+    Line 121：如果欠税，要补
+    Line 125：如果多缴税了，填写refund的方式。
+
+第三部分，签名、写日期。
+
+找出Form W-2中为州税准备的那份copy（注意！只在Box 15是CA的那些W-2中找）
+
+整理文件：
+
+    Form W-2
+    Form 540 NR/540 NR-EZ
+
+最后寄到
+（退税）
+FRANCHISE TAX BOARD
+PO BOX 942840
+SACRAMENTO CA 94240-0002
+（补税）
+FRANCHISE TAX BOARD
+PO BOX 942867
+SACRAMENTO CA 94267-0001
+加州州税搞定！
+
+2.3 弗州州税（Virginia State Income Tax）
+
+Virginia的州税跟California比起来要麻烦的多⋯⋯所以下次暑假一定要留在加州找实习。
+
+准备1）Box 15里是VA的Form W-2，2）Form 763，3）Schedule 763 ADJ，4）之前填过的联邦税表。
+
+2.3.1 Schedule 763 ADJ
+
+这张表是用来调整Form 763中的数额用的。基本上，这里面的大部分选项都我们留学生都不符合。所以都填0.00好了。
+
+2.3.2 Form 763：Virginia Nonresident Income Tax Return
+
+第一部分，填写基本信息。
+
+第二部分，申报身份。就照表上填就好。
+
+第三部分，明细：
+
+    Line 1：AGI。这一栏应当填1040NR-EZ的Line 7的数额
+    Line 2-3：照表上说明填就好了
+    Line 4：年龄减免。这个一般留学生的年龄都达不到减免的岁数。所以填0.00
+    LIne 5：这项一般留学生都没有的，填0.00
+    Line 6：州税和本地退税收入。这项填1040NR-EZ的Line 4的数额
+    Line 7-9：照表上说明填就好了
+    Line 10：如果你报联邦税时没有Schedule A，这栏填0.00
+    Line 11-18：照表上说明填就好了。其中Line 17通过填写下面的NONRESIDENT ALLOCATION PERCENTAGE得到。
+    Line 19：可以查763 Instructions最后的Tax Rate Table填写。
+    Line 20：照表上说明填就好了
+    Line 21：如果你之前支付过州税，填写数目
+    Line 22：如果你没有760IP，跳过
+    Line 23-25：一般来说，填0。
+    Line 26-33：照表上说明填就好了
+
+第四部分，签字，写日期。
+
+找出Form W-2中为州税准备的那份copy（注意！只在Box 15是VA的那些W-2中找）。整理材料：
+
+    Form W-2（Box 15是VA的那部分）
+    Form 763
+    Form Schedule 763ADJ
+
+最后寄到
+（退税）
+REFUND RETURNS
+Virginia department of Taxation
+P.O. Box 1498
+Richmond, VA 23218-149
+（补税）
+TAX DUE RETURNS
+Virginia department of Taxation
+P.O. Box 760
+Richmond, VA 23218-0760
+Virginia州税搞定！
+
+2.4 其他州税
+
+我会慢慢搜集其他各个州的州税指南进行补充
+
+from: http://blog.renren.com/blog/231267695/815631087
