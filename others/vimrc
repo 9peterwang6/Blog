@@ -46,10 +46,10 @@ endif
 syntax on
 
 " list all characters
-:set list
+set list
 
 " disable viminfo logging
-:set viminfo=
+set viminfo=
 
 " use vim-plug to manage plugins
 call plug#begin('~/.vim/plugged')
@@ -63,3 +63,7 @@ call plug#end()
 
 " Plugin preferences
 set laststatus=2
+
+if !has('gui_running')
+  set t_Co=256
+endif
